@@ -7,10 +7,6 @@ import Loading from "../6-Loading/Loading";
 
 class DeleteProduct extends Component {
 
-    constructor(props){
-        super(props)
-    }
-
     componentDidMount() {
         const search = this.props.location.search;
         let orderby = new URLSearchParams(search).get('orderby');

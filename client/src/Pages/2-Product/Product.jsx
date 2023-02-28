@@ -7,9 +7,7 @@ import ProductCardContainer from "../../Components/5-Productcard/ProductCardCont
 
 
 export default class Products extends Component {
-    constructor(props){
-        super(props)
-    }
+   
     render(){
         return(
             <div className="ProductsPage">

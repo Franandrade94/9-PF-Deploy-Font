@@ -7,10 +7,6 @@ import Loading from "../6-Loading/Loading";
 
 class ProductCardContainer extends Component {
 
-    constructor(props){
-        super(props)
-    }
-
     componentDidMount() {
         const search = this.props.location.search;
         let orderby = new URLSearchParams(search).get('orderby');
@@ -27,7 +23,7 @@ class ProductCardContainer extends Component {
         
         let products=[]
         products = this.props.products 
-        const products2 = products?.filter(product => product?.deleted == false);
+        const products2 = products?.filter(product => product?.deleted === false);
   
         
         console.log(products)

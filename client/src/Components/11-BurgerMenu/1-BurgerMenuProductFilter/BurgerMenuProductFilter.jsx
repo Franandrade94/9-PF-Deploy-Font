@@ -26,7 +26,7 @@ export default function BurgerMenuProdcutFilter()  {
         <div>
            <nav className="filterNav">
                 <div className="burger-menu2">
-                    <div onClick={updateMenu}>
+                    <div className={burger_class} onClick={updateMenu}>
                         <button className="filter-btn"><img className="FilerIMG" alt="" src={img}/><p>Filtrar</p></button>
                     </div>
                 </div>

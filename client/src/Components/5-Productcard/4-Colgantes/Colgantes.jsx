@@ -7,10 +7,7 @@ import Loading from "../../6-Loading/Loading";
 
 class Colgantes extends Component {
 
-    constructor(props){
-        super(props)
-    }
-
+    
     componentDidMount() {
         const search = this.props.location.search;
         let orderby = new URLSearchParams(search).get('orderby');
@@ -23,7 +20,7 @@ class Colgantes extends Component {
         
         let products=[]
         products = this.props.products
-        const products2 = products?.filter(product => product?.TypeId == 4 && product?.deleted == false);
+        const products2 = products?.filter(product => product?.TypeId === 4 && product?.deleted === false);
 
         console.log("productos2:")
         console.log(products2)

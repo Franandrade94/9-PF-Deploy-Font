@@ -18,6 +18,10 @@ class ProductDetailCard extends Component {
 
     }
 
+    handleCarrito = (id) => {
+        this.props.agregarCarrito(id);
+    }
+
     render() {
         
         let product = this.props.productDetail;
@@ -47,7 +51,7 @@ class ProductDetailCard extends Component {
                             <p className="descriptionMacetacard">{product.description}</p>
                             <p><img className="starIcon" src={ star } alt=""/>{product.rating}</p>
                             <p>Stock: {product.quantity}</p>
-                            <button className='macetacardCarrito'>agregar al carrito</button>
+                            <button className='macetacardCarrito' onClick={ this.handleCarrito } >agregar al carrito</button>
 
                         </div>   
                     </div>        
@@ -66,7 +70,9 @@ export const mapStateToProps = (state) => {
 
 export const mapDispatchToProps = (dispatch) => {
     return {
-        getProductDetail: (id) => dispatch(actions.getProductDetail(id))
+        getProductDetail: (id) => dispatch(actions.getProductDetail(id)),
+        agregarCarrito: (id) => {
+            dispatch(actions.agregarCarrito(id))},
     }
 }
 

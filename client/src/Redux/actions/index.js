@@ -11,7 +11,6 @@ export const GET_USER_DETAILS = "GET_USER_DETAILS";
 export const CREATE_USER ="CREATE_USER";
 export const DELETE_USER = "DELETE_USER";
 
-const MY_API= "http://localhost:3001"
 
 export const getAllProducts = (orderby=null, types = null, pricerange=null) => {
     const _orderby = (orderby)?`orderby=${orderby}`:{}

@@ -26,10 +26,10 @@ export default class Filter extends Component {
     addPriceRange(e){
         let _priceRange = this.state.priceRange
 
-        if(e.target.name == 'min_pricerange'){
+        if(e.target.name === 'min_pricerange'){
             _priceRange[0] = e.target.value
         }
-        if(e.target.name == 'max_pricerange'){
+        if(e.target.name === 'max_pricerange'){
             _priceRange[1] = e.target.value
         }
         this.setState({...this.state,priceRange:_priceRange})
@@ -38,10 +38,10 @@ export default class Filter extends Component {
     addType(t){
 
         let _types = this.state.types
-        if(_types.indexOf(t) == -1){
+        if(_types.indexOf(t) === -1){
             _types.push(t)
         }else {
-            _types = _types.filter(types => types != t)
+            _types = _types.filter(types => types !== t)
         }
         
         this.setState({types: _types})

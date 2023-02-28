@@ -61,7 +61,7 @@ export default function BurgerMenuSort()  {
             </button>
            <nav className="NavOrder">
                 <div className="burger-menu">
-                    <div onClick={updateMenu}>
+                    <div className={burger_class} onClick={updateMenu}>
                         <button className="Menu-btn">Ordenar por ▼</button>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ export default function BurgerMenuSort()  {
             </div>
             <nav className="NavFilter">
                 <div className="burger-menu3">
-                    <div onClick={updateMenu2}>
+                    <div className={burger_class2} onClick={updateMenu2}>
                         <button className="Menu-btn3">Filtrar por ▼</button>
                     </div>
                 </div>

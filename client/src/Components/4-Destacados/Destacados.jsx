@@ -13,6 +13,11 @@ class Destacados extends Component {
     this.props.getAllProducts();
   }
 
+  handleCarrito = (id) => {
+    this.props.agregarCarrito(id);
+  }
+
+
   render() {
     let products = [];
     products = this.props.products;
@@ -46,6 +51,7 @@ class Destacados extends Component {
                     price={product.price}
                     rating={product.rating}
                     typeId={product.TypeId}
+                    handleCarrito={this.handleCarrito}
                   />
                 </div>
               );
@@ -66,6 +72,8 @@ export const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
   return {
     getAllProducts: () => dispatch(actions.getAllProducts()),
+    agregarCarrito: (id) => {
+      dispatch(actions.agregarCarrito(id))},
   };
 };
 

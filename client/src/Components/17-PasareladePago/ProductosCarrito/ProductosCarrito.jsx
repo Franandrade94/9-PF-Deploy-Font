@@ -3,13 +3,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../Redux/actions/index";
 import CarritoProductCard from "../CarritoProductCard/CarritoProductCard";
-import Loading from "../../6-Loading/Loading";
 
 class ProductosCarrito extends Component {
 
-    constructor(props){
-        super(props)
-    }
 
     componentDidMount() {
         const search = this.props.location.search;
@@ -27,7 +23,7 @@ class ProductosCarrito extends Component {
         
         let products=[]
         products = this.props.products 
-        const products2 = products?.filter(product => product?.carrito == true);
+        const products2 = products?.filter(product => product?.carrito === true);
   
         let totalPrice = 0;
         products2.forEach((product) => {
@@ -40,8 +36,8 @@ class ProductosCarrito extends Component {
             <div className="CarritoProductCard-Container">
                 <div>
                     <div className="CarritoProductCard-Home">
+                        <button className='Vaciar-Carrito'>Vaciar carrito</button>
                         {(products2?.length === 0) ? <h3 className="carritovacio">carrito vacio</h3>: 
-
                         products2?.map((product) => {
                             return <div key={product.id}>
             

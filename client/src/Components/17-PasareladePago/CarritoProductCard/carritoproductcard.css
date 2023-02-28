@@ -2,6 +2,17 @@
     padding: 1%;
 }
 
+.Vaciar-Carrito{
+    background-color: transparent;
+    border: none;
+    color: gray;
+    font-size: 15px;
+}
+
+.Vaciar-Carrito:hover {
+    color: rgb(97, 97, 97);
+}
+
 .Carritoproduct-Container{
     margin-top: 1%;
     background-color: rgb(255, 255, 255);
@@ -25,7 +36,8 @@
 }
 
 .carritoproductPrice{
-    margin-right: 58%;
+    text-align: left;
+    margin-left: 20%;
 }
 
 .carritoproductadd{
@@ -38,3 +50,8 @@
     font-size: 20px;
     color: gray;
 }
+
+.carritoproductadd:hover{
+    color: rgb(97, 97, 97);
+}
+

@@ -5,26 +5,25 @@ import * as actions from "../../Redux/actions/index";
 
 const CreateProduct = () => {
     
-    const [ input, setInput ] = useState({
+    const [input, setInput] = useState({
         name: "",
-        image:"",
+        image: "",
         quantity: 0,
         description: "",
-        price:0,
-        TypeId:0,
+        price: 0,
+        TypeId: 0,
     });
 
-    const [ typeArray, setTypeArray ] = useState([])
+    const [typeArray, setTypeArray] = useState([]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-
     
         if (name === "image") {
           setInput({
             ...input,
             [name]: value,
-            image: image,
+            image: e.target.files[0],
           });
         } else {
           setInput({
@@ -36,34 +35,22 @@ const CreateProduct = () => {
 
     const dispatch = useDispatch();
 
-    const handleSubmit = () => {
-        
-        setInput({
-            ...input,
-            TypeId: typeArray,
-          });
-        
-          let req = input;
-          req.TypeId = typeArray;
-          dispatch(actions.createProduct(req));
-        
-          console.log(req);
-    }
-
-    const enviarDatos = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        await handleSubmit();
-        alert("Product Create Successfully");
-      };
-
-      console.log(enviarDatos, "acaaaaa")
+        
+        let req = input;
+        req.TypeId = typeArray;
+        dispatch(actions.createProduct(req));
+        
+        console.log(req);
+    }
 
     const handleCheckChange = (e) => {
         const value = e.target.value;
         const checked = e.target.checked;
         console.log(value, checked);
 
-        if(checked){
+        if (checked) {
             setTypeArray([
                 ...typeArray, value
             ])
@@ -72,8 +59,7 @@ const CreateProduct = () => {
         }
     }
 
-    const [ image, setImage ] = useState("");
-    const [ loading, setLoading ] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const uploadImage = async (e) => {
         const files = e.target.files;
@@ -89,26 +75,16 @@ const CreateProduct = () => {
           }
         );
         const file = await res.json();
-        setImage(file.secure_url);
-        setLoading(false);
         setInput({
             ...input,
             image: file.secure_url,
         });
+        setLoading(false);
     };
     
-    
-
-    //const isFieldCompleted = () => {
-        //const { input } = state
-        //return (input.name === "" &&
-        //input.price === 0 &&
-        //input.quantity === 0) ? true : false
-    //}
-
     return(
         <div className="Create-Component">
-           <form onSubmit={enviarDatos}>
+           <form onSubmit={handleSubmit}>
                 
                 <h4>Crear Producto</h4>
                 
@@ -123,6 +99,7 @@ const CreateProduct = () => {
                                 onChange={uploadImage}
                                />
                             </label>
+                            {loading && <p>Cargando imagen...</p>}
                         </li>
 
                         <li>

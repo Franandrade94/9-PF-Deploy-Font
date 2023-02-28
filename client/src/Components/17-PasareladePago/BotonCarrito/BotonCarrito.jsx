@@ -1,5 +1,5 @@
 import "./botoncarrito.css";
-import React, { Component } from "react";
+import React from "react";
 import img from "../../../Images/carrito.png";
 import { useState } from "react";
 import ProductosCarrito from "../ProductosCarrito/ProductosCarrito";
@@ -28,7 +28,7 @@ export default function BotonCarrito(location)  {
         <div>
            <nav className="carritoNav">
                 <div className="burger-menu5">
-                    <div onClick={updateMenu}>
+                    <div className={burger_class5} onClick={updateMenu}>
                         <button className="carrito-btn">
                             <img 
                                 className="carritoIMG" 
