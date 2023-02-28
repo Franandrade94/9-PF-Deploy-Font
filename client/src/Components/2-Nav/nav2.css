@@ -1,0 +1,158 @@
+.nav2{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0%;
+    padding-top: .4%;
+    padding-bottom: .4%;
+    border-top: solid rgb(191, 191, 191) 1px;
+    border-bottom: solid rgb(191, 191, 191) 1px;
+    
+}
+
+.link2 { 
+    text-decoration: none; 
+    color: rgb(125, 125, 125);
+    font-weight: bold;
+    padding: 20px 40px;
+}
+
+.link2:hover{
+    color: rgb(103, 103, 103);
+}
+
+.link-P2{
+    text-decoration: none; 
+    color: rgb(125, 125, 125);
+    font-weight: bold;
+    padding: 20px 40px;
+}
+
+.link-P2:hover{
+    color: rgb(103, 103, 103);
+}
+
+.flecha2{
+    width: 10.3vw;
+    position: absolute;
+    margin-top: -1.6%;
+    margin-left: 44%;
+    padding-right: 1%;
+    left: 0;
+    right: 0;
+    text-align: right;
+}
+
+.flecha2:hover{
+    color: rgb(103, 103, 103);   
+}
+
+.link-P2 ul{
+    height: 26vh;
+    width: 12vw;
+    
+}
+
+.All-Products2{
+    position: absolute;
+    background-color: rgb(246, 246, 246);
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    left: .5%;
+    right: 0;
+    top:27%;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    padding-bottom: 1%;
+}
+
+.link-P2:hover .All-Products2{
+        opacity: 1;
+        visibility: visible;
+}
+
+.All-Products2 li{
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.navLinkAnimales2{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0%;
+    padding-right: 66%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkAnimales2:hover{
+    color: rgb(103, 103, 103);;
+}
+
+.navLinkBizcocho2{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0;
+    padding-right: 17.5%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkBizcocho2:hover{
+    color: rgb(103, 103, 103);;
+}
+
+.navLinkCemento2{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0;
+    padding-right: 67%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkCemento2:hover{
+    color: rgb(103, 103, 103);;
+}
+
+.navLinkColgante2{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0;
+    padding-right: 63%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkColgante2:hover{
+    color: rgb(103, 103, 103);
+}
+
+.navLinkFridas2{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0;
+    padding-right: 42%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkFridas2:hover{
+    color: rgb(103, 103, 103);
+}
+
+.navLinkOtros2{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0;
+    padding-right: 85%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkOtros2:hover{
+    color: rgb(103, 103, 103);
+}

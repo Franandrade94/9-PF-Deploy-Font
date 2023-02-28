@@ -1,0 +1,156 @@
+.nav{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0%;
+    padding-top: .4%;
+    border-top: solid rgb(191, 191, 191) 1px;
+    
+}
+
+.link { 
+    text-decoration: none; 
+    color: rgb(125, 125, 125);
+    font-weight: bold;
+    padding: 20px 40px;
+}
+
+.link:hover{
+    color: rgb(103, 103, 103);
+}
+
+.link-P{
+    text-decoration: none; 
+    color: rgb(125, 125, 125);
+    font-weight: bold;
+    padding: 20px 40px;
+}
+
+.link-P:hover{
+    color: rgb(103, 103, 103);
+}
+
+.flecha{
+    width: 8.3vw;
+    position: absolute;
+    margin-top: -1.55%;
+    margin-left: 46%;
+    padding-right: 1%;
+    left: 0;
+    right: 0;
+    text-align: right;
+}
+
+.flecha:hover{
+    color: rgb(103, 103, 103);   
+}
+
+.link-P ul{
+    height: 26vh;
+    width: 12vw;
+    
+}
+
+.All-Products{
+    position: absolute;
+    background-color: rgb(246, 246, 246);
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    left: -0%;
+    right: 0;
+    top:26.3%;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    padding-bottom: 1%;
+}
+
+.link-P:hover .All-Products{
+        opacity: 1;
+        visibility: visible;
+}
+
+.All-Products li{
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.navLinkAnimales{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0%;
+    padding-right: 66%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkAnimales:hover{
+    color: rgb(103, 103, 103);;
+}
+
+.navLinkBizcocho{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0;
+    padding-right: 17.5%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkBizcocho:hover{
+    color: rgb(103, 103, 103);;
+}
+
+.navLinkCemento{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0;
+    padding-right: 67%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkCemento:hover{
+    color: rgb(103, 103, 103);;
+}
+
+.navLinkColgante{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0;
+    padding-right: 63%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkColgante:hover{
+    color: rgb(103, 103, 103);
+}
+
+.navLinkFridas{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0;
+    padding-right: 42%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkFridas:hover{
+    color: rgb(103, 103, 103);
+}
+
+.navLinkOtros{
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 2% 0;
+    padding-right: 85%;
+    padding-left: 4%;
+    margin-left: -16%;
+}
+
+.navLinkOtros:hover{
+    color: rgb(103, 103, 103);
+}

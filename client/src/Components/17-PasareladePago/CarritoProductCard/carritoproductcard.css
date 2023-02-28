@@ -1,0 +1,40 @@
+.AllCarritoProducts{
+    padding: 1%;
+}
+
+.Carritoproduct-Container{
+    margin-top: 1%;
+    background-color: rgb(255, 255, 255);
+    height: 10vh;
+    width: 29.3vw;
+}
+
+.Carritoproduct-Container img{
+    width: 4vw;
+    height: 8vh;
+    margin-right: 84%;
+    margin-top: 1.8%;
+
+}
+
+.carritoproductName{
+    text-align: left;
+    margin-left: 20%;
+    margin-top: -15%;
+    font-weight: bolder;
+}
+
+.carritoproductPrice{
+    margin-right: 58%;
+}
+
+.carritoproductadd{
+    position: absolute;
+    margin-top: -20%;
+    margin-left: -5%;
+    font-weight: bolder;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: gray;
+}

@@ -1,0 +1,66 @@
+.Filter li{
+    list-style: none;
+    text-align: left;
+    margin-bottom: 5%;
+    
+}
+
+.Filter p {
+    font-weight: bolder;
+}
+
+.limpiarfiltros{
+    background-color: transparent;
+    border: none;
+    padding: 2%;
+    margin-top: 2%;
+    border-radius: 20px;
+    color: rgb(121, 121, 121);
+    margin-left: 60%;
+    font-weight: bolder;
+}
+
+.limpiarfiltros:hover{
+    color: rgb(100, 100, 100);
+}
+
+.preciodiv{
+ font-weight: bolder;
+}
+
+.MinPrice{
+    margin-right: 4%;
+    font-weight: lighter;
+}
+
+.MinPrice input{
+    width: 4vw;
+    font-weight: lighter;
+    margin-left: 3%;
+}
+
+.MaxPrice{
+    font-weight: lighter;
+}
+
+.MaxPrice input{
+    font-weight: lighter;
+    width: 4vw;
+    margin-left: 3%;
+}
+
+.FilterButton{
+    background-color: grey;
+    border: none;
+    padding: 3%;
+    margin-top: 5%;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    margin-left: 0%;
+    font-weight: bolder;
+}
+
+.FilterButton:hover{
+    background-color: rgb(90, 90, 90);
+    color: rgb(221, 221, 221);
+}

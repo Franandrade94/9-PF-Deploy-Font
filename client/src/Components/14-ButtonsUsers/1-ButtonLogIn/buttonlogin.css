@@ -1,0 +1,18 @@
+.LogInButton{
+  margin-top: -.5%;
+}
+
+.LogInButton button{
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    margin-right: 0%;
+    margin-top: -2.5%;
+}
+
+.inButt{
+    background-color: transparent;
+    border: none;
+    font-weight: bolder;
+    color: rgb(112, 112, 112);
+}

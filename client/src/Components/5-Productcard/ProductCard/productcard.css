@@ -1,0 +1,48 @@
+.AllProducts{
+    height: 62vh;
+    width: 20vw;
+    padding: 1%;
+    color: black;
+    padding-bottom: 20%;
+}
+
+.product-Container{
+    background-color: rgb(255, 255, 255);
+    height: 62vh;
+    width: 20vw;
+    margin-left: 10%;
+    padding: 1%;
+    padding-top: 3%;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.302);
+   
+}
+
+.product-Container img{
+    width: 19vw;
+    height: 45vh;
+}
+
+.productName{
+    margin-top: 0%;
+    font-size: 22px;
+}
+
+.productPrice{
+    margin-top: -8%;
+}
+
+.productCarrito{
+    background-color: pink;
+    border: none;
+    padding: 4%;
+    border-radius: 20px;
+    margin-top: -5%;
+}
+
+.productCarrito:hover {
+    background-color: rgb(233, 175, 184);
+}
+
+.SinStockImg{
+    position: absolute;    
+}

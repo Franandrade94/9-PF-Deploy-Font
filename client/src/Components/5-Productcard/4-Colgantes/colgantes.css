@@ -1,0 +1,15 @@
+.ColganteCard-Container{
+    background-color: rgb(246, 246, 246);
+    
+}
+.ColganteCard-Home{
+    background-color: rgb(255, 255, 255);
+    margin-left: 20.9%;
+    margin-right: 0%;
+    padding-top:5%;
+    display: grid;
+    grid-template-columns: repeat(3, 0.4fr);
+    grid-gap: 2%; 
+    padding-bottom: 4%;
+    height: 100vh;
+}

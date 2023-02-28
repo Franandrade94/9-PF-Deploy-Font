@@ -1,0 +1,23 @@
+.sort{
+    z-index: 5;
+    list-style: none;
+    
+}
+
+
+.sort li {
+    list-style: none;
+    margin-left: -30%;
+}
+
+.sort button{
+    background-color: transparent;
+    font-size: 14px;
+    border: none;
+   margin-bottom: 10%;
+   color: rgb(99, 99, 99)
+}
+
+.sort button:hover{
+    color: rgb(75, 75, 75);   
+}

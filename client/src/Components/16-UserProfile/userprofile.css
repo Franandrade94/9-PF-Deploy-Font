@@ -1,0 +1,40 @@
+.user-profile{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    background-color: rgb(245, 245, 245);
+    width: 40vw;
+    height: 60vh;
+    padding: 1%;
+    text-align: center;
+    z-index: 10;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.568);
+}
+
+.userInfoContainer{
+    margin-top: 8%;
+}
+
+
+.userInfoContainer img {
+    width: 10vw;
+}
+
+.userInfoContainer h2 {
+    margin-bottom: 5%;
+}
+
+.CloseButt{
+    position: absolute;
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: -2%;
+    right: 0;
+    left: 0;
+    text-align: right;
+    text-decoration: none;
+    color: gray;
+    font-weight: bolder;
+}
