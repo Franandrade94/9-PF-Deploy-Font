@@ -43,6 +43,7 @@ const CreateProduct = () => {
         dispatch(actions.createProduct(req));
         
         console.log(req);
+        alert("Product Create Successfully")
     }
 
     const handleCheckChange = (e) => {
