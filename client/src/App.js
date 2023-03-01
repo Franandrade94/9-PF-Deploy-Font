@@ -14,8 +14,7 @@ import Otros from './Pages/2.6-Otros/Otros';
 import DeleteProduct from './Pages/4-DeleteP/DeleteP';
 import BotonCrear from './Components/13-BotonCrear/BotonCrear';
 import BotonCarrito from './Components/17-PasareladePago/BotonCarrito/BotonCarrito';
-
-import Stripe from './Components/17-PasareladePago/Stripe/Stripe';
+import Payment from './Pages/7-Payment/Payment';
 
 function App() {
   return (
@@ -47,7 +46,7 @@ function App() {
 
         <Route path="/product/delete" exact component={DeleteProduct}/>
     
-        <Route path="/pagos" exact component={Stripe}/>
+        <Route path="/pagos" exact component={Payment}/>
       </Router>
     </div>
   );
