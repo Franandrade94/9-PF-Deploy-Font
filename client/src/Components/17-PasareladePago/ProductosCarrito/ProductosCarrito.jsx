@@ -45,7 +45,7 @@ class ProductosCarrito extends Component {
           totalPrice += parseFloat(product.price);
         });
         totalPrice = totalPrice.toFixed(2); // Establecer 2 decimales
-        
+        const priceInCents = Math.floor(parseFloat({totalPrice}) * 100);
         console.log(this.props)
 
         return(
@@ -68,7 +68,7 @@ class ProductosCarrito extends Component {
                             </div>
                         })}
                         {(products2?.length !== 0) ? (<Link to={`/pagos/${totalPrice}`} ><button>Ir a pagar</button></Link>) : <p/>}
-                        <h2 className="totalcarrito">Total: ${totalPrice}</h2>
+                        <h2 className="totalcarrito">Total: ${priceInCents}</h2>
                     </div>
                 </div>
             </div>
