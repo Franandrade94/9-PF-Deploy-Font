@@ -40,14 +40,13 @@ class ProductosCarrito extends Component {
         products = this.props.products 
         const products2 = products?.filter(product => product?.carrito === true);
   
-        let totalPrice = 0;
-        products2?.forEach((product) => {
-  totalPrice += parseFloat(product.price);
+        let totalPrice = 0.0;
+        products2.forEach((product) => {
+          totalPrice += parseFloat(product.price);
         });
-
-        const priceInCents = Math.round(totalPrice * 100);
-        console.log(priceInCents); // muestra el precio total en centavos
-        // muestra el precio total en formato decimal
+        totalPrice = totalPrice.toFixed(2); // Establecer 2 decimales
+        
+        console.log(this.props)
 
         return(
             <div className="CarritoProductCard-Container">
@@ -68,7 +67,7 @@ class ProductosCarrito extends Component {
                                 
                             </div>
                         })}
-                        {(products2?.length !== 0) ? (<Link to={`/pagos/${priceInCents}`} ><button>Ir a pagar</button></Link>) : <p/>}
+                        {(products2?.length !== 0) ? (<Link to={`/pagos/${totalPrice}`} ><button>Ir a pagar</button></Link>) : <p/>}
                         <h2 className="totalcarrito">Total: ${totalPrice}</h2>
                     </div>
                 </div>
