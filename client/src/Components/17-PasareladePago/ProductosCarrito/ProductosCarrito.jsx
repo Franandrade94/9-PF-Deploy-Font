@@ -67,8 +67,8 @@ class ProductosCarrito extends Component {
                                 
                             </div>
                         })}
-                        {(products2?.length !== 0) ? (<Link to={`/pagos/${totalPrice}`} ><button>Ir a pagar</button></Link>) : <p/>}
-                        <h2 className="totalcarrito">Total: ${priceInCents}</h2>
+                        {(products2?.length !== 0) ? (<Link to={`/pagos/${priceInCents}`} ><button>Ir a pagar</button></Link>) : <p/>}
+                        <h2 className="totalcarrito">Total: ${totalPrice}</h2>
                     </div>
                 </div>
             </div>
