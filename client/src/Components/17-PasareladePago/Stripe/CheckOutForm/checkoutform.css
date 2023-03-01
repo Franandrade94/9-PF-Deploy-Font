@@ -1,0 +1,21 @@
+.paymentCard{
+   margin-left: 10%;
+   margin-right: 10%;
+}
+
+.form-Check{
+    background-color: rgb(218, 218, 218);
+    padding: 1%;
+    margin-bottom: 2%;
+}
+
+.ComprarCheck{
+    background-color: pink;
+    border: none;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.ComprarCheck:hover{
+    background-color: rgb(233, 175, 184);
+}

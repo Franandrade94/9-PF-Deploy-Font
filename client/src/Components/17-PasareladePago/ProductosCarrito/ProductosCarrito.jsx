@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../Redux/actions/index";
 import CarritoProductCard from "../CarritoProductCard/CarritoProductCard";
+import { Link } from "react-router-dom";
+
 
 class ProductosCarrito extends Component {
 
@@ -51,6 +53,7 @@ class ProductosCarrito extends Component {
                                 
                             </div>
                         })}
+                        {(products2?.length !== 0) ? (<Link to='/pagos'><button>Ir a pagar</button></Link>) : <p/>}
                         <h2 className="totalcarrito">Total: ${totalPrice}</h2>
                     </div>
                 </div>

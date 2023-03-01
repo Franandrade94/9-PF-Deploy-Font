@@ -15,6 +15,8 @@ import DeleteProduct from './Pages/4-DeleteP/DeleteP';
 import BotonCrear from './Components/13-BotonCrear/BotonCrear';
 import BotonCarrito from './Components/17-PasareladePago/BotonCarrito/BotonCarrito';
 
+import Stripe from './Components/17-PasareladePago/Stripe/Stripe';
+
 function App() {
   return (
     <div className="App">
@@ -45,6 +47,7 @@ function App() {
 
         <Route path="/product/delete" exact component={DeleteProduct}/>
     
+        <Route path="/pagos" exact component={Stripe}/>
       </Router>
     </div>
   );
