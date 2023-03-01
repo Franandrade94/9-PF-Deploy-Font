@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -17,6 +18,13 @@ import BotonCarrito from './Components/17-PasareladePago/BotonCarrito/BotonCarri
 import Payment from './Pages/7-Payment/Payment';
 
 function App() {
+  const [state, setState] = useState(null);
+
+  useEffect(() => {
+    // this code will be executed whenever there is a change in the state
+    setState(state => state);
+  }, [state]); // specify the state as a dependency
+
   return (
     <div className="App">
       <Router>
@@ -46,7 +54,7 @@ function App() {
 
         <Route path="/product/delete" exact component={DeleteProduct}/>
     
-        <Route path="/pagos" exact component={Payment}/>
+        <Route path="/pagos/:price" exact component={Payment}/>
       </Router>
     </div>
   );

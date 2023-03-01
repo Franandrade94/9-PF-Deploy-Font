@@ -4,7 +4,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from "axios";
 import Loading2 from '../../../6-Loading/Loading2';
 
-function CheckoutForm() {
+function CheckoutForm({ price }) {
 
     const stripe = useStripe();
     const elements = useElements();
@@ -26,7 +26,7 @@ function CheckoutForm() {
             try {
                 const { data } = await axios.post('/checkout', {
                     id,
-                    amount: 10000
+                    amount: { price }
                 });
 
                 console.log(data);
@@ -44,7 +44,7 @@ function CheckoutForm() {
     return(
         <form onSubmit={handleSubmit} className='paymentCard'>
             
-            <h3>Total a pagar: $</h3>
+            <h3>Total a pagar: ${ price }</h3>
 
             <div className="form-Check">
                 <CardElement/>

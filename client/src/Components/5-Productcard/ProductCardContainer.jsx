@@ -15,6 +15,21 @@ class ProductCardContainer extends Component {
         this.props.getAllProducts(orderby, types, pricerange)
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        const { location, getAllProducts } = this.props;
+    
+        // Compara la ubicación anterior con la nueva ubicación
+        if (location !== prevProps.location) {
+          const search = location.search;
+          let orderby = new URLSearchParams(search).get("orderby");
+          let types = new URLSearchParams(search).get("types");
+          let pricerange = new URLSearchParams(search).get("pricerange");
+    
+          // Actualiza los productos utilizando la nueva ubicación
+          getAllProducts(orderby, types, pricerange);
+        }
+      }
+
     handleCarrito = (id) => {
         this.props.agregarCarrito(id);
     }

@@ -17,6 +17,19 @@ class ProductosCarrito extends Component {
         this.props.getAllProducts(orderby, types, pricerange)
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.products !== this.props.products) {
+          // Si hay cambios en los productos, actualiza el estado
+          const products = this.props.products;
+          const products2 = products?.filter((product) => product?.carrito === true);
+          let totalPrice = 0;
+          products2?.forEach((product) => {
+            totalPrice += product.price;
+          });
+          this.setState({ products2, totalPrice });
+        }
+      }
+
     handleCarrito = (id) => {
         this.props.agregarCarrito(id);
     }
@@ -27,11 +40,12 @@ class ProductosCarrito extends Component {
         products = this.props.products 
         const products2 = products?.filter(product => product?.carrito === true);
   
-        let totalPrice = 0;
-        products2.forEach((product) => {
-            totalPrice += product.price;
-          });
-
+        let totalPrice = 0.0;
+        products2?.forEach((product) => {
+          totalPrice += parseFloat(product.price);
+        });
+        totalPrice = totalPrice.toFixed(2); // Establecer 2 decimales
+        
         console.log(this.props)
 
         return(
@@ -53,7 +67,7 @@ class ProductosCarrito extends Component {
                                 
                             </div>
                         })}
-                        {(products2?.length !== 0) ? (<Link to='/pagos'><button>Ir a pagar</button></Link>) : <p/>}
+                        {(products2?.length !== 0) ? (<Link to={`/pagos/${totalPrice}`} ><button>Ir a pagar</button></Link>) : <p/>}
                         <h2 className="totalcarrito">Total: ${totalPrice}</h2>
                     </div>
                 </div>

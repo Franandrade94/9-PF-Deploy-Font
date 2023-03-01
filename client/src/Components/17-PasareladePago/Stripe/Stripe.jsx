@@ -4,15 +4,15 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from "./CheckOutForm/CheckOutForm";
 
-const stripePromise = loadStripe("pk_test_51Mgab1LkJctt9BIbmKUzfuclblBicc3JZGvq9wBpz52YpWk1i3t5m0ne2AlOD5zs6SG5mtUSiZEz7wenKSbxGTDd00iK0VLrm5")
+const stripePromise = loadStripe("pk_test_51MgdeaLkh1uY73aURPAEAAE1KUg2okQQDZg3dH4Ok6r3E6vWGomme3YOro9s6h5KJSuCOs1dMdItGXe92Dpmz4Bk00MKEfU0r0")
 
 
 
-function Stripe() {
+function Stripe({ price }) {
     return (
         <Elements stripe={stripePromise}>
             <div className="CheckoutContainer">
-                <CheckoutForm/>
+                <CheckoutForm price={price}/>
             </div>
         </Elements>
     )
