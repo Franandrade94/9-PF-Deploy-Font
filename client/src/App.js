@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <Router>
         <BotonCrear/>
-        holaaaaaaaaaa
+        
         <BotonCarrito/>
         
         <Route path="/" exact component={Home}/>
