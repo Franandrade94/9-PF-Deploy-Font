@@ -40,12 +40,11 @@ class ProductosCarrito extends Component {
         products = this.props.products 
         const products2 = products?.filter(product => product?.carrito === true);
   
-        let totalPrice = 0.0;
-        products2.forEach((product) => {
-          totalPrice += parseFloat(product.price);
-        });
-        totalPrice = totalPrice.toFixed(2); // Establecer 2 decimales
-        
+        let totalPrice = 0;
+        products2?.forEach((product) => {
+            totalPrice += product.price;
+          });
+
         console.log(this.props)
 
         return(
