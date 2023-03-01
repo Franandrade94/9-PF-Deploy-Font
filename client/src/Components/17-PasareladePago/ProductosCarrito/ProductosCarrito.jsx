@@ -42,17 +42,12 @@ class ProductosCarrito extends Component {
   
         let totalPrice = 0;
         products2?.forEach((product) => {
-            totalPrice += parseFloat(product.price);
-            });
-
-        const priceInCents = Math.floor(totalPrice * 100);
-        const formattedPrice = totalPrice.toLocaleString('en-US', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+  totalPrice += parseFloat(product.price);
         });
 
-        console.log(formattedPrice, "Soy Price"); // muestra el precio total en formato decimal
-
+        const priceInCents = Math.round(totalPrice * 100);
+        console.log(priceInCents); // muestra el precio total en centavos
+        // muestra el precio total en formato decimal
 
         return(
             <div className="CarritoProductCard-Container">
