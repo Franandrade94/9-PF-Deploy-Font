@@ -48,9 +48,9 @@
 @media screen and (max-width: 768px) {
     .AllDestacadosProducts {
       height: auto;
-      width: 40vw; /* Se ajusta el ancho al 90% del viewport width */
+      width: 37vw; /* Se ajusta el ancho al 90% del viewport width */
       padding: 2%;
-      padding-bottom: 40%;
+      padding-bottom: 20%;
     }
   
     .destacados-product-Container {
