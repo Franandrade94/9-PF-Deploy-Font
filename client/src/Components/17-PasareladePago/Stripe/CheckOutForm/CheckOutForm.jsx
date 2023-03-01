@@ -9,6 +9,7 @@ function CheckoutForm({ price }) {
     const stripe = useStripe();
     const elements = useElements();
     const [ loading, setLoading] = useState(false);
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,7 +27,7 @@ function CheckoutForm({ price }) {
             try {
                 const { data } = await axios.post('/checkout', {
                     id,
-                    amount: { price }
+                    amount: price 
                 });
 
                 console.log(data);
