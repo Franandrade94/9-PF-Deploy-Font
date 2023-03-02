@@ -10,7 +10,7 @@ import { createUser } from "../../Redux/actions";
 const UserProfile = () => {
   
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const newUsers = {name:user.name, email: user.email, token: user.sub}
+  const newUsers = {name:user.name, email: user.email, token: user.sub, image: user.picture}
   
   const OnClick = () => {
     window.location.reload();

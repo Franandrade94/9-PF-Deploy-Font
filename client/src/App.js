@@ -15,8 +15,8 @@ import Colgantes from './Pages/2.4-Colgantes/Colgantes';
 import FridasyBaby from './Pages/2.5-Fridas&Baby/Fridas&Baby';
 import Otros from './Pages/2.6-Otros/Otros';
 import DeleteProduct from './Pages/4-DeleteP/DeleteP';
-import Administrador from './Components/13-BotonCrear/BotonCrear';
-import AdminstrarUsers from "./Components/7-AdministrarUsers/AdminstrarUsers";
+import Administrador from './Components/13-BotonCrear/BotonCrear'
+import AdminstrarUsers from "./Pages/4-AdminUser/AdminUser";
 import BotonCarrito from './Components/17-PasareladePago/BotonCarrito/BotonCarrito';
 import Payment from './Pages/7-Payment/Payment';
 

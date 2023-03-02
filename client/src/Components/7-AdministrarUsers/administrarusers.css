@@ -1,0 +1,36 @@
+.UserCard-Container{
+    background-color: rgb(243, 243, 243);
+    padding: 5%;
+}
+
+.UserCard-Home{
+    margin-top: -3.2%;
+    margin-left: 33%;
+    padding-bottom: 5%;
+}
+
+.Noadmin{
+    position: absolute;
+    margin-left: -19.1%;
+    margin-top: -7.5%;
+    border: none;
+    border-radius: 50px;
+    background-color: red;
+    padding: 1%;
+    font-size: 17px;    
+}
+
+.Noadmin:hover{
+    background-color: rgb(218, 0, 0);
+}
+
+.Admin{
+    position: absolute;
+    margin-left: -18.2%;
+    margin-top: -7.5%;
+    border: none;
+    border-radius: 50px;
+    background-color: rgb(55, 173, 25);
+    padding: 1%;
+    font-size: 17px; 
+}

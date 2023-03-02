@@ -1,0 +1,30 @@
+.Allusers{
+    margin-top: 5%;
+    width: 30vw;
+    height: 50vh;
+    margin-bottom: 5%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.479);
+}
+
+.user-Container{
+    background-color: white;
+    width: 30vw;
+    height: 50vh;
+}
+
+
+.userImage{
+    margin-top: 5%;
+    width: 10vw;
+    height: 18.5vh;
+    border-radius: 100%;
+    border: rgb(126, 126, 126) solid 1px;
+}
+
+.userName{
+    text-align: center;
+}
+
+.userEmail{
+    text-align: center;
+}

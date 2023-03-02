@@ -20,14 +20,12 @@ class AdministrarUsers extends Component {
         const users = this.props.users?.filter(user => !user?.eliminado);
 
         return(
-            <div className="ProductCard-Container">
+            <div className="UserCard-Container">
                 <div>
-                    <div className="ProductCard-Home">
+                    <div className="UserCard-Home">
                         {(users?.length === 0) ? <Loading/>  : users?.map((user) => {
                             return <div key={user.id}>
-                                
-                                {(user?.admin === false) ? <button className="eliminarbutt" onClick={() => this.handleAdmin(user.id)}>NO ADMIN</button> : <button className="restaurarbutt" onClick={() => this.handleAdmin(user.id)}>ADMIN</button>}
-                                
+                                           
                                 <UserCard
                                     id={user.id}
                                     name={user.name}
@@ -35,6 +33,9 @@ class AdministrarUsers extends Component {
                                     admin={user.admin}
                                     image={user.image}
                                 />
+
+                                {(user?.admin === false) ? <button className="Noadmin" onClick={() => this.handleAdmin(user.id)}>NO ADMIN</button> : <button className="Admin" onClick={() => this.handleAdmin(user.id)}>ADMIN</button>}
+
                             </div>
                         })}
                     </div>
