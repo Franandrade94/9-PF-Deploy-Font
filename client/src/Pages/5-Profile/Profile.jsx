@@ -9,11 +9,9 @@ const Profile =()=>   {
     
 const { user } = useAuth0();
 
-const { user_metadata } = useAuth0();
 
 const newUsers = {name:user.name, email: user.email, token: user.sub,}
 
-console.log(user_metadata )
 const dispatch = useDispatch();
 
 console.log(user, "soy user")
