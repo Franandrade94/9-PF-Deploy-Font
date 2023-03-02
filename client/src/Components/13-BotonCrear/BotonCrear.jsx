@@ -13,6 +13,9 @@ export default class BotonCrear extends Component {
                 <Link className="link-create" to="/product/delete">
                     manage products
                 </Link>
+                <Link className="link-create" to="/user/rol">
+                    manage users
+                </Link>
             </div>
         )
     }

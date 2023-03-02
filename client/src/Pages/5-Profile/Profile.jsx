@@ -10,7 +10,7 @@ const Profile =()=>   {
 const { user } = useAuth0();
 
 
-const newUsers = {name:user.name, email: user.email, token: user.sub,}
+const newUsers = {name:user.name, email: user.email, token: user.sub, image: user.picture}
 
 const dispatch = useDispatch();
 

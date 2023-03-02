@@ -16,6 +16,7 @@ import FridasyBaby from './Pages/2.5-Fridas&Baby/Fridas&Baby';
 import Otros from './Pages/2.6-Otros/Otros';
 import DeleteProduct from './Pages/4-DeleteP/DeleteP';
 import Administrador from './Components/13-BotonCrear/BotonCrear';
+import AdminstrarUsers from "./Components/7-AdministrarUsers/AdminstrarUsers";
 import BotonCarrito from './Components/17-PasareladePago/BotonCarrito/BotonCarrito';
 import Payment from './Pages/7-Payment/Payment';
 
@@ -31,7 +32,7 @@ function App({users, getAllUsers}) {
     getAllUsers();
   }, [getAllUsers]);
 
-  const users2 = users?.map(user => user?.roles)
+  const users2 = users?.map(user => user?.admin)
 
   console.log(users2, "SOY EL ROOOOOOL")
 
@@ -39,9 +40,10 @@ function App({users, getAllUsers}) {
     <div className="App">
       <Router>
         
-        { users2 === "admin" && <Administrador/>}
+        {/* { users2 === true && <Administrador/>} */}
+        <Administrador/>
         
-        { users2 === "user" && <BotonCarrito/>}
+        { users2 === false && <BotonCarrito/>}
         
         <Route path="/" exact component={Home}/>
 
@@ -64,6 +66,8 @@ function App({users, getAllUsers}) {
         <Route path="/product/create" exact component={Create}/>
 
         <Route path="/product/delete" exact component={DeleteProduct}/>
+
+        <Route path="/user/rol" exact component={AdminstrarUsers}/>
     
         <Route path="/pagos/:price" exact component={Payment}/>
       </Router>
