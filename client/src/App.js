@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import * as actions from "./Redux/actions/index";
 
 import Home from './Pages/1-Home/Home';
 import Products from './Pages/2-Product/Product';
@@ -13,11 +15,11 @@ import Colgantes from './Pages/2.4-Colgantes/Colgantes';
 import FridasyBaby from './Pages/2.5-Fridas&Baby/Fridas&Baby';
 import Otros from './Pages/2.6-Otros/Otros';
 import DeleteProduct from './Pages/4-DeleteP/DeleteP';
-import BotonCrear from './Components/13-BotonCrear/BotonCrear';
+import Administrador from './Components/13-BotonCrear/BotonCrear';
 import BotonCarrito from './Components/17-PasareladePago/BotonCarrito/BotonCarrito';
 import Payment from './Pages/7-Payment/Payment';
 
-function App() {
+function App({ users, getAllUsers }) {
   const [state, setState] = useState(null);
 
   useEffect(() => {
@@ -25,12 +27,18 @@ function App() {
     setState(state => state);
   }, [state]); // specify the state as a dependency
 
+  useEffect(() => {
+    getAllUsers();
+  }, [getAllUsers]);
+
+
   return (
     <div className="App">
       <Router>
-        <BotonCrear/>
         
-        <BotonCarrito/>
+        {this.user.roles === "admin" && <Administrador/>}
+        
+        {this.user.role === "user" && <BotonCarrito/>}
         
         <Route path="/" exact component={Home}/>
 
@@ -60,4 +68,16 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllUsers: () => dispatch(actions.getAllUsers()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
