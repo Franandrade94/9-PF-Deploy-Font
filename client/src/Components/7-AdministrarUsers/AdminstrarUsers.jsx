@@ -11,13 +11,13 @@ class AdministrarUsers extends Component {
         this.props.getAllUsers();
     }
 
+    handleAdmin = (id) => {
+        this.props.setAdminUsers(id);
+    }
 
     render(){
 
-        let users=[];
-        users = this.props.users;
-
-        console.log(users, "ke ondaaa")
+        const users = this.props.users?.filter(user => !user?.eliminado);
 
         return(
             <div className="ProductCard-Container">
@@ -26,7 +26,7 @@ class AdministrarUsers extends Component {
                         {(users?.length === 0) ? <Loading/>  : users?.map((user) => {
                             return <div key={user.id}>
                                 
-                                {(user?.admin === false) ? <button className="eliminarbutt">Hacer admin</button> : <button className="restaurarbutt">hacer user</button>}
+                                {(user?.admin === false) ? <button className="eliminarbutt" onClick={() => this.handleAdmin(user.id)}>NO ADMIN</button> : <button className="restaurarbutt" onClick={() => this.handleAdmin(user.id)}>ADMIN</button>}
                                 
                                 <UserCard
                                     id={user.id}
@@ -53,7 +53,10 @@ export const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
     return {
         getAllUsers: () => dispatch(actions.getAllUsers()),
+        setAdminUsers: (id) => {
+            dispatch(actions.setAdminUsers(id))
+        }
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdministrarUsers);

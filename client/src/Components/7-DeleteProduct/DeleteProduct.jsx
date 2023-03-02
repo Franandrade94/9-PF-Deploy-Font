@@ -21,6 +21,7 @@ class DeleteProduct extends Component {
     render(){
 
         const products = this.props.products?.filter(product => !product?.eliminado);
+        
         return(
             <div className="ProductCard-Container">
                 <div>

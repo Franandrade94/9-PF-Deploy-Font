@@ -66,6 +66,11 @@ const rootReducer = (state = initialState, action) => {
         }
 
         case actions.DELETE_USER: return {
+            users: state.users,
+            userDetail: {},
+        }
+
+        case actions.SET_ADMIN_USERS: return {
             users: state.users.filter((item) => item.id !== action.payload),
             userDetail: {},
         }

@@ -10,7 +10,7 @@ export const GET_ALL_USERS = "GET_ALL_USERS";
 export const GET_USER_DETAILS = "GET_USER_DETAILS";
 export const CREATE_USER ="CREATE_USER";
 export const DELETE_USER = "DELETE_USER";
-
+export const SET_ADMIN_USERS = "SET_ADMIN_USERS";
 
 export const getAllProducts = (orderby=null, types = null, pricerange=null) => {
     const _orderby = (orderby)?`orderby=${orderby}`:{}
@@ -109,5 +109,15 @@ export const deleteUser = (payload) => {
     return {
         type: DELETE_USER,
         payload,
+    }
+};
+
+export const setAdminUsers = (id) => {
+    return (dispatch) => {
+        return axios.delete(`/users/admin/${id}`)
+            .then(res => dispatch({
+                type: SET_ADMIN_USERS,
+                payload: res.data
+            }))
     }
 };
