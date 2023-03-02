@@ -10,7 +10,7 @@ import { createUser } from "../../Redux/actions";
 const UserProfile = () => {
   
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const newUsers = {name:user.name, email: user.email, token: user.sub}
+  const newUsers = {name:user.name, email: user.email, token: user.sub, roles: user?.user_metadata?.roles}
   
   const OnClick = () => {
     window.location.reload();
@@ -25,6 +25,30 @@ const UserProfile = () => {
   if (isLoading) {
     return <div><Loading /></div>;
   }
+
+  const guardarMetadataEnBaseDeDatos = async (metadata) => {
+    try {
+      const response = await fetch('/api/metadata', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(metadata)
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // Enviar la información de metadata a la API cuando el componente se monta
+  useEffect(() => {
+    if (isAuthenticated) {
+      guardarMetadataEnBaseDeDatos(user.user_metadata);
+    }
+  }, [isAuthenticated, user.user_metadata]);
+  
   return (
     isAuthenticated && (
       <div>
@@ -37,6 +61,7 @@ const UserProfile = () => {
               <p>Email: {user.email}</p>
               
               <p>id: {user.sub}</p>
+              <p>Tu rol es: {user.user_metadata.roles}</p>
             </div>
           </div>
         </div>
