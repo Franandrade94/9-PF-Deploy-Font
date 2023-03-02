@@ -35,6 +35,7 @@ const UserProfile = () => {
         },
         body: JSON.stringify(metadata)
       });
+      console.log(metadata,"METADATA")
       const data = await response.json();
       console.log(data);
     } catch (error) {
