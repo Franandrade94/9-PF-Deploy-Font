@@ -19,7 +19,7 @@ import Administrador from './Components/13-BotonCrear/BotonCrear';
 import BotonCarrito from './Components/17-PasareladePago/BotonCarrito/BotonCarrito';
 import Payment from './Pages/7-Payment/Payment';
 
-function App({ users, getAllUsers }) {
+function App({users, getAllUsers}) {
   const [state, setState] = useState(null);
 
   useEffect(() => {
@@ -31,14 +31,17 @@ function App({ users, getAllUsers }) {
     getAllUsers();
   }, [getAllUsers]);
 
+  const users2 = users?.map(user => user?.roles)
+
+  console.log(users2, "SOY EL ROOOOOOL")
 
   return (
     <div className="App">
       <Router>
         
-        {this.user.roles === "admin" && <Administrador/>}
+        { users2 === "admin" && <Administrador/>}
         
-        {this.user.role === "user" && <BotonCarrito/>}
+        { users2 === "user" && <BotonCarrito/>}
         
         <Route path="/" exact component={Home}/>
 
