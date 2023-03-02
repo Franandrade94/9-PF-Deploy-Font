@@ -12,6 +12,7 @@ const { user } = useAuth0();
 
 const newUsers = {name:user.name, email: user.email, token: user.sub, image: user.picture}
 
+
 const dispatch = useDispatch();
 
 console.log(user, "soy user")

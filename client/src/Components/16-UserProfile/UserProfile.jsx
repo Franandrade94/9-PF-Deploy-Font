@@ -18,7 +18,9 @@ const UserProfile = () => {
 
   const dispatch = useDispatch();
 
-      console.log(user)
+      console.log(user, "somos usuarios")
+
+      console.log(user.picture, "SOY LA IMAGEN")
 
   useEffect(()=> {dispatch(createUser(newUsers))})
 
