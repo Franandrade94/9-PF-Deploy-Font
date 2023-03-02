@@ -5,6 +5,7 @@ import Nav from "../../Components/2-Nav/Nav";
 import VideoHome from "../../Components/3-VideoHome/VideoHome";
 import Destacados from "../../Components/4-Destacados/Destacados";
 import ButtonsUsers from "../../Components/14-ButtonsUsers/ButtonsUsers";
+import { Link } from "react-router-dom";
 
 
 export default class Home extends Component {
@@ -15,7 +16,9 @@ export default class Home extends Component {
                     <ButtonsUsers/>
                     <Logo/>
                     <Nav/>
-                    <VideoHome/>
+                    <Link to="/products">
+                        <VideoHome/>
+                    </Link>
                     <Destacados/>
                 </div>
             </div>

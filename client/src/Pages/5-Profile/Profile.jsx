@@ -9,11 +9,11 @@ const Profile =()=>   {
     
 const { user } = useAuth0();
 
-const newUsers = {name:user.name, email: user.email, token: user.sub}
+const newUsers = {name:user.name, email: user.email, token: user.sub, roles: user.roles}
 
 const dispatch = useDispatch();
 
-console.log(user)
+console.log(user, "soy user")
 
 useEffect(()=> {dispatch(createUser(newUsers))})
 console.log(user)
