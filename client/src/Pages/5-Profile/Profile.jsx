@@ -10,15 +10,16 @@ const Profile =()=>   {
 const { user } = useAuth0();
 
 
-const newUsers = {name:user.name, email: user.email, token: user.sub, image: user.picture}
-
+const newUsers = {name: user.name, picture: user.picture, email: user.email, token: user.sub }
+console.log(newUsers, 'NEW USERS')
 
 const dispatch = useDispatch();
 
-// console.log(user, "soy user")
 
-useEffect(()=> {dispatch(createUser(newUsers))},[]);
-console.log(user)
+
+
+useEffect(()=> {dispatch(createUser(newUsers))},[])
+
         return(
             <div className="ProfileC">
                 <div>

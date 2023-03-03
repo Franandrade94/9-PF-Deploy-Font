@@ -96,22 +96,24 @@ export const getUserDetail = (id) => {
 
 export const createUser = (user) => {
     return (dispatch) => {
-        return axios.post(`http://localhost:3001/users`, user)
+        return axios.post(`/users`, user)
             // .then(e => {
             //     if(e.data.email){
             //         localStorage.setItem('user', JSON.stringify(e.data));
             //     }
             // })
             .then(res => {
+                console.log(res.data, 'DATAAAAA');
                 if(res.data.email){
                     localStorage.setItem('user', JSON.stringify(res.data));
                 }
+                // console.log(JSON.parse(localStorage.getItem('user')), 'LOCAALLL');
                 dispatch(
                 // console.log(res.data, 'DATA RES'),
                 { 
                 type: CREATE_USER, 
-                payload: res.data })})
-    }
+                payload: res.data })})
+    }
 
 };
 

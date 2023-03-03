@@ -20,30 +20,31 @@ import AdminstrarUsers from "./Pages/4-AdminUser/AdminUser";
 import BotonCarrito from './Components/17-PasareladePago/BotonCarrito/BotonCarrito';
 import Payment from './Pages/7-Payment/Payment';
 
+
 function App({users, getAllUsers}) {
+
   const [state, setState] = useState(null);
 
   useEffect(() => {
-    // this code will be executed whenever there is a change in the state
     setState(state => state);
-  }, [state]); // specify the state as a dependency
+  }, [state]);
 
   useEffect(() => {
     getAllUsers();
   }, [getAllUsers]);
-
+  
   const users2 = JSON.parse(localStorage.getItem('user'));
 
-  console.log(users2.admin, "SOY EL ROOOOOOL")
+  console.log(users2, "SOY EL ROOOOOOL")
 
   return (
     <div className="App">
       <Router>
+
+         {users2?.admin === false && <Administrador/>}
+     
         
-        {/* { users2 === true && <Administrador/>} */}
-        <Administrador/>
-        
-        {/* { users2 === false && <BotonCarrito/>} */}
+        { users2?.admin === false && <BotonCarrito/>}
         
         <Route path="/" exact component={Home}/>
 
