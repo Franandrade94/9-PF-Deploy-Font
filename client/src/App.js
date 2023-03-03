@@ -32,8 +32,8 @@ function App({users, getAllUsers}) {
   useEffect(() => {
     getAllUsers();
   }, [getAllUsers]);
-
-  const users2 = users?.map(user => user?.admin)
+  
+  const users2 = JSON.parse(localStorage.getItem('user'));
 
   console.log(users2, "SOY EL ROOOOOOL")
 

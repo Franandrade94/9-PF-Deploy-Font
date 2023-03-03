@@ -18,11 +18,11 @@ const users = JSON.parse(localStorage.getItem('user'))
 
 const dispatch = useDispatch();
 
-console.log(user, user.picture, "soy user")
+
 
 
 useEffect(()=> {dispatch(createUser(newUsers))})
-console.log(user,"fghfghg")
+
         return(
             <div className="ProfileC">
                 <div>
