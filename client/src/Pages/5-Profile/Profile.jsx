@@ -12,10 +12,6 @@ const { user } = useAuth0();
 
 const newUsers = {name: user.name,picture: user.picture, email: user.email, token: user.sub }
 
-localStorage.setItem('user', JSON.stringify(newUsers));
-const local = localStorage.getItem('user')
-const users = JSON.parse(localStorage.getItem('user'))
-
 const dispatch = useDispatch();
 
 
