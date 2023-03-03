@@ -96,11 +96,21 @@ export const getUserDetail = (id) => {
 
 export const createUser = (user) => {
     return (dispatch) => {
-        return axios.post(`https://pfhenry-back-production.up.railway.app/users`, user)
-
-            .then(res => dispatch({ 
+        return axios.post(`http://localhost:3001/users`, user)
+            // .then(e => {
+            //     if(e.data.email){
+            //         localStorage.setItem('user', JSON.stringify(e.data));
+            //     }
+            // })
+            .then(res => {
+                if(res.data.email){
+                    localStorage.setItem('user', JSON.stringify(res.data));
+                }
+                dispatch(
+                // console.log(res.data, 'DATA RES'),
+                { 
                 type: CREATE_USER, 
-                payload: res.data }))
+                payload: res.data })})
     }
 
 };

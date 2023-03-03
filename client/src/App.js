@@ -32,9 +32,9 @@ function App({users, getAllUsers}) {
     getAllUsers();
   }, [getAllUsers]);
 
-  const users2 = users?.map(user => user?.admin)
+  const users2 = JSON.parse(localStorage.getItem('user'));
 
-  console.log(users2, "SOY EL ROOOOOOL")
+  console.log(users2.admin, "SOY EL ROOOOOOL")
 
   return (
     <div className="App">
@@ -43,7 +43,7 @@ function App({users, getAllUsers}) {
         {/* { users2 === true && <Administrador/>} */}
         <Administrador/>
         
-        { users2 === false && <BotonCarrito/>}
+        {/* { users2 === false && <BotonCarrito/>} */}
         
         <Route path="/" exact component={Home}/>
 
@@ -77,7 +77,7 @@ function App({users, getAllUsers}) {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users,
+    users: state?.users,
   };
 };
 

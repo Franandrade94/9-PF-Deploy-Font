@@ -15,9 +15,9 @@ const newUsers = {name:user.name, email: user.email, token: user.sub, image: use
 
 const dispatch = useDispatch();
 
-console.log(user, "soy user")
+// console.log(user, "soy user")
 
-useEffect(()=> {dispatch(createUser(newUsers))})
+useEffect(()=> {dispatch(createUser(newUsers))},[]);
 console.log(user)
         return(
             <div className="ProfileC">
@@ -25,7 +25,6 @@ console.log(user)
                 </div>
             </div>
         )
-    
 }
 
 export default Profile;
