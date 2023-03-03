@@ -19,6 +19,7 @@ class AdministrarUsers extends Component {
 
         const users = this.props.users?.filter(user => !user?.eliminado);
 
+        console.log(users, "HOLAAAAAA DAKOTA")
         return(
             <div className="UserCard-Container">
                 <div>
@@ -31,7 +32,7 @@ class AdministrarUsers extends Component {
                                     name={user.name}
                                     email={user.email} 
                                     admin={user.admin}
-                                    image={user.image}
+                                    image={user.picture}
                                 />
 
                                 {(user?.admin === false) ? <button className="Noadmin" onClick={() => this.handleAdmin(user.id)}>NO ADMIN</button> : <button className="Admin" onClick={() => this.handleAdmin(user.id)}>ADMIN</button>}

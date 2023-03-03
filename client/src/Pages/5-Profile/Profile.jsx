@@ -10,15 +10,19 @@ const Profile =()=>   {
 const { user } = useAuth0();
 
 
-const newUsers = {name:user.name, email: user.email, token: user.sub, image: user.picture}
+const newUsers = {name: user.name,picture: user.picture, email: user.email, token: user.sub }
 
+localStorage.setItem('user', JSON.stringify(newUsers));
+const local = localStorage.getItem('user')
+const users = JSON.parse(localStorage.getItem('user'))
 
 const dispatch = useDispatch();
 
-console.log(user, "soy user")
+console.log(user, user.picture, "soy user")
+
 
 useEffect(()=> {dispatch(createUser(newUsers))})
-console.log(user)
+console.log(user,"fghfghg")
         return(
             <div className="ProfileC">
                 <div>

@@ -10,8 +10,9 @@ import { createUser } from "../../Redux/actions";
 const UserProfile = () => {
   
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const newUsers = {name:user.name, email:user.email, token:user.sub, image:user.picture}
-  
+  const newUsers = {name: user.name, picture: user.picture, email: user.email, token: user.sub }
+  console.log(isAuthenticated, "isAuthenticated")
+  console.log(user.picture)
   const OnClick = () => {
     window.location.reload();
   }
@@ -20,7 +21,7 @@ const UserProfile = () => {
 
       console.log(user, "somos usuarios")
 
-      console.log(user.picture, "SOY LA IMAGEN")
+      
 
   useEffect(()=> {dispatch(createUser(newUsers))})
 
