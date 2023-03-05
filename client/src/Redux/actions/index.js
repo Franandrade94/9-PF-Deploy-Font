@@ -125,6 +125,10 @@ export const deleteUser = (payload) => {
 export const setAdminUsers = (id) => {
     return (dispatch) => {
         return axios.delete(`/users/admin/${id}`)
+            .then(e => {
+                console.log(e.data, 'SETADMIN')
+                localStorage.setItem('user', JSON.stringify(e.data));
+            })
             .then(res => dispatch({
                 type: SET_ADMIN_USERS,
                 payload: res.data

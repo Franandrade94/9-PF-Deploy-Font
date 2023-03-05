@@ -19,7 +19,7 @@ class AdministrarUsers extends Component {
 
         const users = this.props.users?.filter(user => !user?.eliminado);
 
-        console.log(users, "HOLAAAAAA DAKOTA")
+        // console.log(users, "HOLAAAAAA DAKOTA")
         return(
             <div className="UserCard-Container">
                 <div>
