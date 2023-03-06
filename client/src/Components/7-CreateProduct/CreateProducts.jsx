@@ -40,6 +40,7 @@ const CreateProduct = () => {
         
         let req = input;
         req.TypeId = typeArray;
+        console.log(req, 'RATING FOMR');
         dispatch(actions.createProduct(req));
         
         console.log(req);
@@ -130,7 +131,7 @@ const CreateProduct = () => {
                                         Animales
                                         <input 
                                             name="TypeId"
-                                            type="checkbox"
+                                            type="radio"
                                             value="1"
                                             onChange={handleCheckChange} />
                                     </label>
@@ -139,7 +140,7 @@ const CreateProduct = () => {
                                         Bizcocho Ceramico
                                         <input 
                                             name="TypeId"
-                                            type="checkbox"value="2" 
+                                            type="radio"value="2" 
                                             onChange={handleCheckChange} />
                                     </label>
                             
@@ -147,7 +148,7 @@ const CreateProduct = () => {
                                         Cemento
                                         <input
                                             name="TypeId" 
-                                            type="checkbox"value="3"
+                                            type="radio"value="3"
                                             onChange={handleCheckChange} />
                                     </label>
                             
@@ -155,7 +156,7 @@ const CreateProduct = () => {
                                         Colgantes
                                         <input 
                                             name="TypeId"
-                                            type="checkbox"value="4" 
+                                            type="radio"value="4" 
                                             onChange={handleCheckChange} />
                                     </label>
                            
@@ -163,7 +164,7 @@ const CreateProduct = () => {
                                         Fridas & Babies
                                         <input
                                             name="TypeId"
-                                            type="checkbox"
+                                            type="radio"
                                             value="5" 
                                             onChange={handleCheckChange} />
                                     </label>
@@ -172,7 +173,7 @@ const CreateProduct = () => {
                                         Otros
                                         <input
                                             name="TypeId" 
-                                            type="checkbox"
+                                            type="radio"
                                             value="6" 
                                             onChange={handleCheckChange} />
                                     </label>

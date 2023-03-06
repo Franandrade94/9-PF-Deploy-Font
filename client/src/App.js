@@ -41,10 +41,10 @@ function App({users, getAllUsers}) {
     <div className="App">
       <Router>
 
-         {users2.admin === true && <Administrador/>}
+         {users2?.admin === true && <Administrador/>}
      
         
-        { users2.admin === false && <BotonCarrito/>}
+        { users2?.admin === false && <BotonCarrito/>}
         
         <Route path="/" exact component={Home}/>
 

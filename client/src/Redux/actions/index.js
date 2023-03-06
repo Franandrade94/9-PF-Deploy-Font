@@ -37,7 +37,7 @@ export const getProductDetail = (id) => {
 export const createProduct = (product) => {
     return (dispatch) => {
         return axios.post(`/products`, product)
-
+            // .then(e => console.log(e.data, 'CREATE'))
             .then(res => dispatch({ 
                 type: CREATE_PRODUCT, 
                 payload: res.data }))
@@ -107,7 +107,7 @@ export const createUser = (user) => {
                     localStorage.setItem('user', JSON.stringify(res.data));
                 }
                 dispatch(
-                console.log(res.data, 'DATA RES'),
+                // console.log(res.data, 'DATA RES'),
                 { 
                 type: CREATE_USER, 
                 payload: res.data })})

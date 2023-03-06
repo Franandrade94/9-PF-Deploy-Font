@@ -7,7 +7,11 @@ const ButtonLogOut = () => {
 
     return (
         <div className="LogOutButton">
-            <button className="outBut" onClick={() => logout({ returnTo: window.location.origin })}>LogOut</button>
+            <button className="outBut" onClick={() => logout({ 
+                returnTo: window.location.origin 
+                },
+                localStorage.removeItem('user')
+            )}>LogOut</button>
         </div>
     )
 };
