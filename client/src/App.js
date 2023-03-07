@@ -49,7 +49,9 @@ function App({users, getAllUsers}) {
 
       <BotonCarrito/>
 
-        <Administrador/>
+      {/* 
+
+        <Administrador/> */}
 
          {users2 === true && <Administrador/>}
      
@@ -75,7 +77,7 @@ function App({users, getAllUsers}) {
 
         <Route path="/products/otros" exact component={Otros}/>
 
-        <Route path="/products/details/:id" exact component={ProductDetailCard}/>
+        <Route path="/product/details/:id" exact component={ProductDetailCard}/>
 
         <Route path="/product/create" exact component={Create}/>
 

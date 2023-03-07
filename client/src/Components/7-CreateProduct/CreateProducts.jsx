@@ -52,6 +52,7 @@ const CreateProduct = () => {
           price: 0,
           TypeId: 0,
         });
+        window.location.reload();
       };
          
     const handleCheckChange = (e) => {
