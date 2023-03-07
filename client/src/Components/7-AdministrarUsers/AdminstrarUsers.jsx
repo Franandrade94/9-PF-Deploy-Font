@@ -16,10 +16,9 @@ class AdministrarUsers extends Component {
     }
 
     render(){
-
-        const users = this.props.users?.filter(user => !user?.eliminado);
-
-        // console.log(users, "HOLAAAAAA DAKOTA")
+        let users=[]
+        users = this.props.users
+        
         return(
             <div className="UserCard-Container">
                 <div>

@@ -25,6 +25,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "start-memory": "node --max-old-space-size=10240 node_modules/react-scripts/scripts/start.js",
     "start": "react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",
     "test": "react-scripts test",

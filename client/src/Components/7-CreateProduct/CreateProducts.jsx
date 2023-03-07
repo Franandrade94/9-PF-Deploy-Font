@@ -37,16 +37,24 @@ const CreateProduct = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+      
         let req = input;
         req.TypeId = typeArray;
         console.log(req, 'RATING FOMR');
         dispatch(actions.createProduct(req));
-        
+      
         console.log(req);
-        alert("Product Create Successfully")
-    }
-
+        alert("Product Create Successfully");
+        setInput({
+          name: "",
+          image: "",
+          quantity: 0,
+          description: "",
+          price: 0,
+          TypeId: 0,
+        });
+      };
+         
     const handleCheckChange = (e) => {
         const value = e.target.value;
         const checked = e.target.checked;
@@ -224,22 +232,7 @@ const CreateProduct = () => {
                                 />
                             </label>
                         </li>    
-                        
-                        <li>
-                            <label className="ratingLabel">
-                                Rating(1-5): 
-                                <input
-                                    className="ratingInput"
-                                    type="number"
-                                    required={true}
-                                    min="1"
-                                    max="5"
-                                    step=".01"
-                                    name="rating"
-                                    onChange={handleInputChange}
-                                />
-                            </label>
-                        </li>
+                
                     </ul>
                     
                     <button //disabled={isFieldCompleted()}

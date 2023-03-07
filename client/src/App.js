@@ -19,15 +19,21 @@ import Administrador from './Components/13-BotonCrear/BotonCrear'
 import AdminstrarUsers from "./Pages/4-AdminUser/AdminUser";
 import BotonCarrito from './Components/17-PasareladePago/BotonCarrito/BotonCarrito';
 import Payment from './Pages/7-Payment/Payment';
+import WelcomePopUp from "./Components/0-WelcomePopUp/WelcomePopUp";
+import ReviewPopUp from "./Components/18-ReviewPopUp/ReviewPopUp";
 
 
 function App({users, getAllUsers}) {
 
-  const [state, setState] = useState(null);
+  const [showWelcomePopUp, setShowWelcomePopUp] = useState(false);
 
   useEffect(() => {
-    setState(state => state);
-  }, [state]);
+    const hasShownWelcomePopUp = localStorage.getItem('hasShownWelcomePopUp');
+    if (!hasShownWelcomePopUp) {
+      setShowWelcomePopUp(true);
+      localStorage.setItem('hasShownWelcomePopUp', true);
+    }
+  }, []);
 
   useEffect(() => {
     getAllUsers();
@@ -41,11 +47,18 @@ function App({users, getAllUsers}) {
     <div className="App">
       <Router>
 
-         {users2?.admin === true && <Administrador/>}
+      <BotonCarrito/>
+
+        <Administrador/>
+
+         {users2 === true && <Administrador/>}
      
         
-        { users2?.admin === false && <BotonCarrito/>}
+        { users2 === false && <BotonCarrito/>}
+
         
+        { showWelcomePopUp && <WelcomePopUp/> }
+
         <Route path="/" exact component={Home}/>
 
         <Route path="/products" exact component={Products}/>
@@ -71,6 +84,8 @@ function App({users, getAllUsers}) {
         <Route path="/user/rol" exact component={AdminstrarUsers}/>
     
         <Route path="/pagos/:price" exact component={Payment}/>
+
+        <Route path="/reviewpopup" exact component={ReviewPopUp}/>
       </Router>
     </div>
   );
