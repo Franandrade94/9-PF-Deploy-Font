@@ -43,7 +43,6 @@ export default class Nav3 extends Component {
                         </li>
                     </ul>
                 </Link>
-                <Link to="" className="link3">Ofertas</Link>
                 <Link onClick={this.scrollToContacto} className="link3">Contacto</Link>
             </div>
         )

@@ -19,6 +19,7 @@ useEffect(() => {
         return(
             <div className="ProfileC">
                 <div>
+                    
                 </div>
             </div>
         )

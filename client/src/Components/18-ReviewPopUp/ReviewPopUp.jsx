@@ -1,42 +1,34 @@
 import "./reviewpopup.css";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import ReviewForm from "./ReviweForm/ReviewForm";
 
+const ReviewPopUp = () => {
+    const [isOpen, setIsOpen] = useState(true);
 
-class ReviewPopUp extends Component {
-    state = {
-        abierto: true,
-    }
+    const toggleModal = () => {
+        setIsOpen(!isOpen);
+    };
 
-    abrirModal = () => {
-        this.setState({abierto: !this.state.abierto});
-    }
+    return (
+        <>
+            <Modal isOpen={isOpen} toggle={toggleModal}>
+                <ModalHeader toggle={toggleModal}>
+                    <h3 className="CompraH3">Muchas Gracias por su compra!</h3>
+                </ModalHeader>
 
-    
-    render(){
-        return(
-            <>
-                
-                <Modal isOpen={this.state.abierto}>
-                    <ModalHeader>
-                        <h3 className="CompraH3">Muchas Gracias por su compra!</h3>
-                    </ModalHeader>
+                <ModalBody>
+                    <p className="pcompra">Para finalizar nos gustaria molestarlos con una breve encuesta (no es obligatoria)</p>
+                    <ReviewForm/>
+                </ModalBody>
 
-                    <ModalBody>
-                        <p className="pcompra">Para finalizar nos gustaria molestarlos con una breve encuesta (no es obligatoria)</p>
-                        <ReviewForm/>
-                    </ModalBody>
-
-                    <ModalFooter>
-                        <Button color="secondary" onClick={this.abrirModal}>Inicio</Button>
-                    </ModalFooter>
-                </Modal>
-            </>
-        )
-    }
-
+                <ModalFooter>
+                    <Button color="secondary" onClick={toggleModal}>Inicio</Button>
+                </ModalFooter>
+            </Modal>
+        </>
+    );
 };
 
 export default ReviewPopUp;
