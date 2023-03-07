@@ -46,8 +46,8 @@
 }
 
 .link-P ul{
-    height: 26vh;
-    width: 12vw;
+    height: 30vh;
+    width: 15vw;
     
 }
 
@@ -58,9 +58,9 @@
     margin-left: auto;
     margin-right: auto;
     text-align: left;
-    left: -0%;
+    left: 0;
     right: 0;
-    top:26.3%;
+    top:24.5%;
     z-index: 10;
     opacity: 0;
     visibility: hidden;

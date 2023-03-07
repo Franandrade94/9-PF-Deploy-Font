@@ -15,7 +15,7 @@ const DestacadosProdcutCard = (props) => {
         <div className="AllDestacadosProducts">
             <div className="destacados-product-Container">
                 <div>
-                    <Link to={`/products/details/${id}`}>
+                    <Link to={`/product/details/${id}`}>
                     <img src={image} alt="" />
                     </Link>
                     <p className="destacadosproductName">{name}</p>

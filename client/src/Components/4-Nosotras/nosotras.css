@@ -1,0 +1,27 @@
+.Nosotras-HOME{
+    margin-top: -9%;
+}
+
+.Nosotras-Container{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 2%;
+    padding: 2%;
+}
+
+.nosotras{
+    margin-bottom: 5%;
+}
+
+.nosotras-text{
+    border-top: solid gray 1px;
+    border-bottom: solid gray 1px;
+    text-align: justify;
+}
+
+.nosotras-text p {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}

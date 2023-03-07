@@ -14,17 +14,18 @@ class ReviewPopUp extends Component {
         this.setState({abierto: !this.state.abierto});
     }
 
+    
     render(){
         return(
             <>
                 
                 <Modal isOpen={this.state.abierto}>
                     <ModalHeader>
-                        Muchas Gracias por su compra!!!!
+                        <h3 className="CompraH3">Muchas Gracias por su compra!</h3>
                     </ModalHeader>
 
                     <ModalBody>
-                        <p>Para finalizar nos gustaria molestarlos con una breve encuesta(no es obligatoria)</p>
+                        <p className="pcompra">Para finalizar nos gustaria molestarlos con una breve encuesta (no es obligatoria)</p>
                         <ReviewForm/>
                     </ModalBody>
 

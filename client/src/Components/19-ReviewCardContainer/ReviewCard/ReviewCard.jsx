@@ -10,7 +10,7 @@ const ReviewCard = (props) => {
         <div className="Allreviews">
             <div className="review-Container">
                 <div>        
-                <h2 className="ReviewProductName">{productname}</h2>
+                    <h2 className="ReviewProductName">{productname}</h2>
                     
                     <h4 className="ReviewComment">"{comment}"</h4>
 
