@@ -1,5 +1,5 @@
 import "./deleteproduct.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../Redux/actions/index";
 import ProductCard from "../5-Productcard/ProductCard/ProductCard";
@@ -18,7 +18,7 @@ const DeleteProduct = () => {
 
   useEffect(() => {
     dispatch(actions.getAllProducts(orderby, types, pricerange));
-  }, [dispatch]);
+  }, [dispatch, orderby, pricerange, types]);
 
   const filteredProducts = products?.filter((product) => !product?.eliminado);
 
