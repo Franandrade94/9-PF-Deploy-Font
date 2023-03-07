@@ -1,18 +1,23 @@
 .LogInButton{
-  margin-top: -.5%;
+  margin-top: .5%;
 }
 
 .LogInButton button{
     position: absolute;
-    border: none;
+    border: 2px solid rgb(245, 102, 126);
+    border-radius: 7px;
     background-color: transparent;
-    padding-left: 1%;
-    margin-top: -1.5%;
+    margin-top: 0;
+    height: 4.5vh;
 }
 
 .inButt{
     background-color: transparent;
     border: none;
     font-weight: bolder;
-    color: rgb(112, 112, 112);
+    color: gray;
+}
+
+.inBut:hover{
+  color: rgb(83, 83, 83);
 }
