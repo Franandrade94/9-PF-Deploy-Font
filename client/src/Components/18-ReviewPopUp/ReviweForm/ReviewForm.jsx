@@ -4,7 +4,7 @@ import * as actions from "../../../Redux/actions/index";
 import { useDispatch } from "react-redux";
 
 
-const ReviewForm = () => {
+const ReviewForm = (props) => {
     
     const [ input, setInput] = useState(
         {
@@ -39,13 +39,15 @@ const ReviewForm = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label>
+                <div className="ReviewFormContainer">
+                <label className="NameFormR">
                     Name:
                     <input
                         type="text"
                         name="name"
                         onChange={ handleInputChange }
                         required= {false}
+                        className="inputNameForm"
                     />
                 </label>
 
@@ -56,23 +58,25 @@ const ReviewForm = () => {
                         name="productname"
                         onChange={ handleInputChange }
                         required= {false}
+                        className="inputProductNameForm"
                     />
                 </label>
 
                 <label>
-                    Dejanos tu comnetario:
+                    Dejanos tu comentario:
                     <input
                         type="text"
                         name="comment"
                         onChange={handleInputChange}
                         required={false}
+                        className="inputcomentForm"
                     />
                 </label>
 
-                <button type="submit">
+                <button className="SendReview" type="submit">
                     Send Review
                 </button>
-
+                </div>
             </form>
         </div>
     )

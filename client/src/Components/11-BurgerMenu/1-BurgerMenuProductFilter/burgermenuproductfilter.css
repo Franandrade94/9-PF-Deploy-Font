@@ -7,7 +7,13 @@
     border-bottom: solid rgb(191, 191, 191) 1px;
 }
 
+.limpiarfiltros{
+    margin-left: 1%;
+    font-size: 12px;
+}
+
 .burger-menu2 {
+    margin-top: -1.5%;
     margin-left: 1%;
     height: 80%;
     width: 0em;
@@ -23,7 +29,7 @@
     height: 48.5vh;
     background-color: rgb(246, 246, 246);
     position: absolute;
-    top:37.9%;
+    top:31.3%;
     left: 0%;
     z-index: 6;
 }

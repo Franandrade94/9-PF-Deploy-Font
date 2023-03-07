@@ -1,13 +1,24 @@
 import "./nav3.css";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { animateScroll as scroll } from "react-scroll";
 
 export default class Nav3 extends Component {
+
+    scrollToContacto = () => {
+        scroll.scrollTo(document.getElementById("contacto").offsetTop);
+      };
+    
+      scrollToNosotras = () => {
+        scroll.scrollTo(document.getElementById("nosotras").offsetTop);
+      };
+
+
     render() {
         return (
             <div className="nav3">
                 <Link className="link3" to="/">Inicio</Link>
-                <Link to="" className="link3">Nosotras</Link>
+                <Link onClick={this.scrollToNosotras} className="link3">Nosotras</Link>
                 <Link to="/products" className="link-P3">
                     Productos   
                     <p className="flecha3">▼</p>
@@ -33,7 +44,7 @@ export default class Nav3 extends Component {
                     </ul>
                 </Link>
                 <Link to="" className="link3">Ofertas</Link>
-                <Link to="" className="link3">Contacto</Link>
+                <Link onClick={this.scrollToContacto} className="link3">Contacto</Link>
             </div>
         )
     }

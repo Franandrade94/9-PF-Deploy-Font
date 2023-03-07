@@ -48,8 +48,8 @@
 }
 
 .link-P2 ul{
-    height: 26vh;
-    width: 12vw;
+    height: 30vh;
+    width: 15vw;
     
 }
 
@@ -62,7 +62,7 @@
     text-align: left;
     left: .5%;
     right: 0;
-    top:27%;
+    top:24.5%;
     z-index: 10;
     opacity: 0;
     visibility: hidden;

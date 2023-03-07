@@ -1,0 +1,27 @@
+.categoriasHome-component{
+    margin-left: 18%;
+    margin-bottom: 5%;
+}
+
+.ShopProduct{
+    text-align: center;
+    margin-left: -22.5%;
+    margin-bottom: 5%;
+    margin-top: 4%;
+}
+
+.CategoriasButton{
+    display: grid;
+    grid-template-columns: repeat(3, 0.1fr);
+    grid-gap: 1%; 
+}
+
+.CategoriasButton button {
+    border: none;
+    background-color: transparent;
+}
+
+.CategoriasButton img{
+    height: 31vh;
+    width: 20vw;
+}
