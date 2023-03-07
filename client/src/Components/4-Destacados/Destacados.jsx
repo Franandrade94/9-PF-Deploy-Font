@@ -23,7 +23,7 @@ class Destacados extends Component {
     products = this.props.products;
     const products2 = products?.filter((product) => product?.rating >= 4.5 && product?.quantity >= 1)
       .slice(0, 12);
-    console.log(this.props.products, 'PRODUCT');
+    // console.log(this.props.products, 'PRODUCT');
 
     return (
       <div className="destacados">

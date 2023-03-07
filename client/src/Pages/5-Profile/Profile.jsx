@@ -17,7 +17,7 @@ const dispatch = useDispatch();
 
 
 
-useEffect(()=> {dispatch(createUser(newUsers))})
+useEffect(()=> {dispatch(createUser(newUsers))},[])
 
         return(
             <div className="ProfileC">
@@ -25,7 +25,6 @@ useEffect(()=> {dispatch(createUser(newUsers))})
                 </div>
             </div>
         )
-    
 }
 
 export default Profile;

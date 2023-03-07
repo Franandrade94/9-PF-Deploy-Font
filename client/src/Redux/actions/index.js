@@ -49,9 +49,10 @@ export const createProduct = (product) => {
 };
 
 export const deleteProduct = (id) => {
+    // console.log(id, 'ID ACTION');
     return (dispatch) => {
         return axios.delete(`/products/${id}`)
-
+            // .then(res => console.log(res.data, 'DATA DELETE'))
             .then(res => dispatch({ 
                 type: DELETE_PRODUCT, 
                 payload: res.data }))
@@ -107,9 +108,11 @@ export const createUser = (user) => {
             //     }
             // })
             .then(res => {
+                console.log(res.data, 'DATAAAAA');
                 if(res.data.email){
                     localStorage.setItem('user', JSON.stringify(res.data));
                 }
+                // console.log(JSON.parse(localStorage.getItem('user')), 'LOCAALLL');
                 dispatch(
                 // console.log(res.data, 'DATA RES'),
                 { 
