@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from "axios";
 import Loading2 from '../../../6-Loading/Loading2';
+import ReviewPopUp from '../../../18-ReviewPopUp/ReviewPopUp';
 
 function CheckoutForm({ price }) {
 
     const stripe = useStripe();
     const elements = useElements();
     const [ loading, setLoading] = useState(false);
+    const [ showReviewPopUp, setShowReviewPopUp ] = useState(false);
     
 
     const handleSubmit = async (e) => {
@@ -30,7 +32,11 @@ function CheckoutForm({ price }) {
                     amount: price 
                 });
 
-                console.log(data);
+                console.log(data.message);
+
+                if (data?.message === "Successful Payment") {
+                    setShowReviewPopUp(true);
+                }
 
                 elements.getElement(CardElement).clear();
             } catch (error) {
@@ -40,22 +46,26 @@ function CheckoutForm({ price }) {
             setLoading(false)
         }
 
-      };
+    };
+
 
     return(
-        <form onSubmit={handleSubmit} className='paymentCard'>
-            
-            <h3>Total a pagar: ${ price }</h3>
+        <div>
+            <form onSubmit={handleSubmit} className='paymentCard'>
+                <h3>Total a pagar: ${ price }</h3>
 
-            <div className="form-Check">
-                <CardElement/>
-            </div>
+                <div className="form-Check">
+                  <CardElement/>
+                </div>
             
-            <button className='ComprarCheck' disabled={!stripe}> {loading ? 
-                (<Loading2/>) : "Comprar" }
-            </button>
-        </form>
+                <button className='ComprarCheck' disabled={!stripe}> {loading ? 
+                    (<Loading2/>) : "Comprar" }
+                </button>
+            </form>
+
+            { showReviewPopUp && <ReviewPopUp /> }
+        </div>
     )
 }
 
-export default CheckoutForm
+export default CheckoutForm;

@@ -11,6 +11,10 @@ export const GET_USER_DETAILS = "GET_USER_DETAILS";
 export const CREATE_USER ="CREATE_USER";
 export const DELETE_USER = "DELETE_USER";
 export const SET_ADMIN_USERS = "SET_ADMIN_USERS";
+export const GET_ALL_REVIEWS = "GET_ALL_REVIEWS";
+export const CREATE_REVIEW = "CREATE_REVIEW";
+
+
 
 export const getAllProducts = (orderby=null, types = null, pricerange=null) => {
     const _orderby = (orderby)?`orderby=${orderby}`:{}
@@ -129,5 +133,26 @@ export const setAdminUsers = (id) => {
                 type: SET_ADMIN_USERS,
                 payload: res.data
             }))
+    }
+};
+
+export const createReview = (review) => {
+    return (dispatch) => {
+        return axios.post(`/reviews`, review)
+
+            .then(res => dispatch({
+                type: CREATE_REVIEW,
+                payload: res.data
+            }
+            ))
+    }
+}
+
+export const getAllReviews = () => {
+    return (dispatch) => {
+        return axios.get(`/reviews`)
+            .then(res => dispatch({ 
+                type: GET_ALL_REVIEWS, 
+                payload: res.data }))
     }
 };

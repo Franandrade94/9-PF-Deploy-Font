@@ -1,0 +1,16 @@
+.ReviewCard-Container{
+    background-color: rgb(218, 171, 179);
+    height: 60vh;
+    margin-bottom: 10%;
+}
+
+.ReviewCard-Home{
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.slick-dots{
+    left:0%;
+  }
+  
