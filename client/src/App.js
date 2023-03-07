@@ -35,7 +35,7 @@ function App({users, getAllUsers}) {
   
   const users2 = JSON.parse(localStorage.getItem('user'));
 
-  console.log(users2, "SOY EL ROOOOOOL")
+  // console.log(users2, "SOY EL ROOOOOOL")
 
   return (
     <div className="App">
