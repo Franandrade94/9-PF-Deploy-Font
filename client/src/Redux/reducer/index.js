@@ -29,9 +29,12 @@ const rootReducer = (state = initialState, action) => {
             productDetail: {},
         }
 
-        case actions.DELETE_PRODUCT: return {
-            products: state.products,
-            productDetail: {},
+        case actions.DELETE_PRODUCT: 
+            console.log(action.payload, 'DELETE REDUCE');
+            return {
+            ...state,
+            // products: state.products,
+            products: action.payload,
         }
 
         case actions.RESTORE_PRODUCT:

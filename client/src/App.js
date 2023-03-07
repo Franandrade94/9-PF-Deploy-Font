@@ -53,7 +53,7 @@ function App({users, getAllUsers}) {
 
         <Administrador/> */}
 
-        { users2?.admin === true && <Administrador/>}
+        { users2?.admin === false && <Administrador/>}
      
         
         { users2?.admin === false && <BotonCarrito/>}
