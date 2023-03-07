@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import ReviewForm from "./ReviweForm/ReviewForm";
+import { Link } from "react-router-dom";
 
 
 class ReviewPopUp extends Component {
@@ -30,7 +31,8 @@ class ReviewPopUp extends Component {
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button color="secondary" onClick={this.abrirModal}>Inicio</Button>
+                        <Link to='/'><Button color="secondary" onClick={this.abrirModal}>Inicio</Button></Link>
+                        {/* <Button color="secondary" onClick={this.abrirModal}>Inicio</Button> */}
                     </ModalFooter>
                 </Modal>
             </>

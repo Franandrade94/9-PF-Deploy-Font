@@ -13,7 +13,7 @@ const ProductCard = (props) => {
 
     const user = JSON.parse(localStorage.getItem('user'));
 
-    console.log(user, 'LOCAL STORAGE PRODUCTCARD');
+    // console.log(user, 'LOCAL STORAGE PRODUCTCARD');
 
     return (
         <div className="AllProducts">

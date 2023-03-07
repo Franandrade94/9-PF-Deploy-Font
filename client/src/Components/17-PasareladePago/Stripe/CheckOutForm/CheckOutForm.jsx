@@ -4,6 +4,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from "axios";
 import Loading2 from '../../../6-Loading/Loading2';
 import ReviewPopUp from '../../../18-ReviewPopUp/ReviewPopUp';
+import { useSelector } from 'react-redux';
 
 function CheckoutForm({ price }) {
 
@@ -11,7 +12,10 @@ function CheckoutForm({ price }) {
     const elements = useElements();
     const [ loading, setLoading] = useState(false);
     const [ showReviewPopUp, setShowReviewPopUp ] = useState(false);
+    const products = useSelector(state => state?.products);
     
+    const arr = products.filter(pr => pr.carrito === true);
+    console.log(arr, 'PRODUCTS CHECKOUTFORM');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,7 +29,7 @@ function CheckoutForm({ price }) {
 
         if (!error) {
             const { id } = paymentMethod;
-            console.log(id, 'ID PAY');
+            // console.log(id, 'ID PAY');
             try {
                 const { data } = await axios.post('/checkout', {
                     id,

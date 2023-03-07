@@ -21,7 +21,7 @@ class ReviewCardContainer extends Component {
         
         const reviews2 = reviews?.filter((r) => r?.comment?.length > 1)
     
-        // console.log(reviews2, 'REVIEWs')
+        console.log(reviews2, 'REVIEWs')
     
         // Configuración del slider
         const settings = {

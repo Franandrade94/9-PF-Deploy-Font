@@ -41,8 +41,8 @@ class ProductCardContainer extends Component {
         const products2 = products?.filter(product => product?.deleted === false);
   
         
-        console.log(products)
-        console.log(this.props)
+        console.log(products, 'PROD PRODUCTCONTEINER')
+        // console.log(this.props)
 
         return(
             <div className="ProductCard-Container">
