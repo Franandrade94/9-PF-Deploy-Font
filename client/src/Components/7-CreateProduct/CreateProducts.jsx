@@ -40,6 +40,7 @@ const CreateProduct = () => {
       
         let req = input;
         req.TypeId = typeArray;
+        console.log(req, 'RATING FOMR');
         dispatch(actions.createProduct(req));
       
         console.log(req);

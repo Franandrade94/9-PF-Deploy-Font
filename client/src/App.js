@@ -41,22 +41,22 @@ function App({users, getAllUsers}) {
   
   const users2 = JSON.parse(localStorage.getItem('user'));
 
-  console.log(users2, "SOY EL ROOOOOOL")
+  // console.log(users2.admin, "SOY EL ROOOOOOL")
 
   return (
     <div className="App">
       <Router>
 
-      <BotonCarrito/>
+      {/* <BotonCarrito/>
 
       {/* 
 
         <Administrador/> */}
 
-         {users2 === true && <Administrador/>}
+        { users2?.admin === false && <Administrador/>}
      
         
-        { users2 === false && <BotonCarrito/>}
+        { users2?.admin === false && <BotonCarrito/>}
 
         
         { showWelcomePopUp && <WelcomePopUp/> }
@@ -95,7 +95,7 @@ function App({users, getAllUsers}) {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users,
+    users: state?.users,
   };
 };
 

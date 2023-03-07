@@ -31,7 +31,7 @@ class AdministrarUsers extends Component {
                                     name={user.name}
                                     email={user.email} 
                                     admin={user.admin}
-                                    image={user.picture}
+                                    // image={user.picture}
                                 />
 
                                 {(user?.admin === false) ? <button className="Noadmin" onClick={() => this.handleAdmin(user.id)}>NO ADMIN</button> : <button className="Admin" onClick={() => this.handleAdmin(user.id)}>ADMIN</button>}

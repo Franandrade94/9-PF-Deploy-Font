@@ -41,7 +41,7 @@ export const getProductDetail = (id) => {
 export const createProduct = (product) => {
     return (dispatch) => {
         return axios.post(`/products`, product)
-
+            // .then(e => console.log(e.data, 'CREATE'))
             .then(res => dispatch({ 
                 type: CREATE_PRODUCT, 
                 payload: res.data }))
@@ -49,9 +49,10 @@ export const createProduct = (product) => {
 };
 
 export const deleteProduct = (id) => {
+    // console.log(id, 'ID ACTION');
     return (dispatch) => {
         return axios.delete(`/products/${id}`)
-
+            // .then(res => console.log(res.data, 'DATA DELETE'))
             .then(res => dispatch({ 
                 type: DELETE_PRODUCT, 
                 payload: res.data }))
@@ -100,16 +101,18 @@ export const getUserDetail = (id) => {
 
 export const createUser = (user) => {
     return (dispatch) => {
-        return axios.post(`http://localhost:3001/users`, user)
+        return axios.post(`/users`, user)
             // .then(e => {
             //     if(e.data.email){
             //         localStorage.setItem('user', JSON.stringify(e.data));
             //     }
             // })
             .then(res => {
+                console.log(res.data, 'DATAAAAA');
                 if(res.data.email){
                     localStorage.setItem('user', JSON.stringify(res.data));
                 }
+                // console.log(JSON.parse(localStorage.getItem('user')), 'LOCAALLL');
                 dispatch(
                 // console.log(res.data, 'DATA RES'),
                 { 
@@ -129,6 +132,10 @@ export const deleteUser = (payload) => {
 export const setAdminUsers = (id) => {
     return (dispatch) => {
         return axios.delete(`/users/admin/${id}`)
+            .then(e => {
+                console.log(e.data, 'SETADMIN')
+                localStorage.setItem('user', JSON.stringify(e.data));
+            })
             .then(res => dispatch({
                 type: SET_ADMIN_USERS,
                 payload: res.data

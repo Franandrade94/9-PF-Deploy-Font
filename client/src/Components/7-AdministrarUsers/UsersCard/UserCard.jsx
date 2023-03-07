@@ -10,7 +10,7 @@ const UserCard = (props) => {
         <div className="Allusers">
             <div className="user-Container">
                 <div>
-                    {console.log({image}, "soyimagen")}
+                    {/* {console.log({image}, "soyimagen")} */}
                     <img className="userImage" src={image} alt=''/>
         
                     <h2 className="userName">{name}</h2>
