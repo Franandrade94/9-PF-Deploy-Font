@@ -25,7 +25,7 @@ function CheckoutForm({ price }) {
 
         if (!error) {
             const { id } = paymentMethod;
-            
+            console.log(id, 'ID PAY');
             try {
                 const { data } = await axios.post('/checkout', {
                     id,

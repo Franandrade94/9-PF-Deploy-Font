@@ -11,6 +11,10 @@ const ProductCard = (props) => {
         handleCarrito(id);
     }
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    console.log(user, 'LOCAL STORAGE PRODUCTCARD');
+
     return (
         <div className="AllProducts">
             <div className="product-Container">
@@ -32,8 +36,11 @@ const ProductCard = (props) => {
                     <img src={props.image} alt="" />
                     </Link>
                     <p className="productName">{name}</p>
-                    <p className='productPrice'>${price}</p>  
-                    <button className='productCarrito' onClick={ addToCart }>agregar al carrito</button>
+                    <p className='productPrice'>${price}</p> 
+                    {user ? 
+                    <button className='productCarrito' onClick={ addToCart }>agregar al carrito</button> : 
+                    <button disabled className='productCarrito' onClick={ addToCart }>agregar al carrito</button>}
+                    {/* <button className='productCarrito' onClick={ addToCart }>agregar al carrito</button> */}
                 </div>)
                 }
             </div>
