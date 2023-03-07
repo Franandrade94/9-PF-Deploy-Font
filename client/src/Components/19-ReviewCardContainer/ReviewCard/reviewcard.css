@@ -1,0 +1,28 @@
+.Allreviews{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    height: 25vh;
+    width: 22vw;
+    padding: 1%;
+    margin-top: 2%;
+}
+
+.review-Container{
+    
+    
+}
+
+.ReviewProductName{
+ font-size: 17px;
+ font-weight: bolder;
+}
+
+.ReviewComment{
+    font-size: 15px;
+}
+
+.ReviewName{
+    color: black;
+    font-size: 19px;
+    font-weight: bolder;
+}

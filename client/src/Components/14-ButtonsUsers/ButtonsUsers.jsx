@@ -10,16 +10,17 @@ const ButtonsUsers = () => {
     
     const{ isAuthenticated } = useAuth0();
 
+    // console.log(JSON.parse(localStorage.getItem('user')), 'LOCAL SOTARE');
+
     return(
         <div className="ButtonUsersContainer">
             <img alt="" src={img}/>
             {
-                isAuthenticated ?
+                isAuthenticated && JSON.parse(localStorage.getItem('user')) !== undefined ?
                     <>
                         <Profile/>
                         <ButtonLogOut/>
                     </> :
-
                 <ButtonLogIn/>
             }
         </div>

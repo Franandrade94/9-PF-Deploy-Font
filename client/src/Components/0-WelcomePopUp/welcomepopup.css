@@ -1,0 +1,28 @@
+.principal{
+    align-items: center;
+    display: flex;
+}
+
+.secundario{
+   margin: 0 auto;  
+}
+.PopUp-Container{
+    padding: 1%;
+}
+
+.PopUp-Header{
+    margin-left: 5%;
+}
+
+.PopUp-Header h2{
+    margin-top: 2%;
+    color: rgb(255, 134, 154);
+    font-weight: bolder;
+    text-align: center;
+}
+
+.PopUp-Body{
+    text-align: center;
+    color: rgb(126, 126, 126);
+    font-weight: bolder;
+}

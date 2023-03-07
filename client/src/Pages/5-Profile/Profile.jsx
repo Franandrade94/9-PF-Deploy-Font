@@ -10,8 +10,7 @@ const Profile =()=>   {
 const { user } = useAuth0();
 
 
-const newUsers = {name: user.name, picture: user.picture, email: user.email, token: user.sub }
-console.log(newUsers, 'NEW USERS')
+const newUsers = {name: user.name,picture: user.picture, email: user.email, token: user.sub }
 
 const dispatch = useDispatch();
 
@@ -28,4 +27,4 @@ useEffect(()=> {dispatch(createUser(newUsers))},[])
         )
 }
 
-export default Profile;
+export default Profile;

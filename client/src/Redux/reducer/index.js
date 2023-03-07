@@ -4,7 +4,8 @@ const initialState = {
     products: [],
     productDetail:{},
     users: [],
-    userDetail:{}
+    userDetail:{},
+    reviews: [],
 }
 
     
@@ -73,6 +74,15 @@ const rootReducer = (state = initialState, action) => {
         case actions.SET_ADMIN_USERS: return {
             users: state.users.filter((item) => item.id !== action.payload),
             userDetail: {},
+        }
+
+        case actions.CREATE_REVIEW: return {
+            reviews: [...state.reviews, action.payload],
+        }
+        case actions.GET_ALL_REVIEWS:
+        return {
+            ...state,
+            reviews: action.payload,
         }
 
         default: return state;

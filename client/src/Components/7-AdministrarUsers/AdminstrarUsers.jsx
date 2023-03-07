@@ -16,15 +16,14 @@ class AdministrarUsers extends Component {
     }
 
     render(){
-        console.log(this.props.users, 'USER ADMINIS');
-        const user = this.props.users?.filter(user => !user?.eliminado);
-
-        // console.log(users, "HOLAAAAAA DAKOTA")
+        let users=[]
+        users = this.props.users
+        
         return(
             <div className="UserCard-Container">
                 <div>
                     <div className="UserCard-Home">
-                        {(user?.length === 0) ? <Loading/>  : user?.map((user) => {
+                        {(users?.length === 0) ? <Loading/>  : users?.map((user) => {
                             return <div key={user.id}>
                                            
                                 <UserCard
