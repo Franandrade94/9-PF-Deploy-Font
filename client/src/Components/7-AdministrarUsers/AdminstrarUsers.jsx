@@ -6,58 +6,85 @@ import UserCard from "./UsersCard/UserCard";
 import Loading from "../6-Loading/Loading";
 
 class AdministrarUsers extends Component {
+  componentDidMount() {
+    this.props.getAllUsers();
+  }
 
-    componentDidMount() {
-        this.props.getAllUsers();
+  handleAdmin = (id) => {
+    this.props.setAdminUsers(id);
+  }
+
+  render() {
+    const { users } = this.props;
+
+    return (
+      <div className="UserCard-Container">
+        <div className="UserCard-Home">
+          {users.length === 0 ? (
+            <Loading />
+          ) : (
+            users.map((user) => (
+              <div key={user.id}>
+                <UserCard
+                  id={user.id}
+                  name={user.name}
+                  email={user.email}
+                  admin={user.admin}
+                />
+                <UserAdminButton
+                  id={user.id}
+                  isAdmin={user.admin}
+                  handleAdmin={this.handleAdmin}
+                />
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    );
+  }
+}
+
+class UserAdminButton extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAdmin: props.isAdmin,
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.isAdmin !== this.props.isAdmin) {
+      this.setState({ isAdmin: this.props.isAdmin });
     }
+  }
 
-    handleAdmin = (id) => {
-        this.props.setAdminUsers(id);
-    }
+  handleAdmin = () => {
+    const { id, handleAdmin } = this.props;
+    handleAdmin(id);
+    this.setState((prevState) => ({ isAdmin: !prevState.isAdmin }));
+  };
 
-    render(){
-        let users=[]
-        users = this.props.users
-        
-        return(
-            <div className="UserCard-Container">
-                <div>
-                    <div className="UserCard-Home">
-                        {(users?.length === 0) ? <Loading/>  : users?.map((user) => {
-                            return <div key={user.id}>
-                                           
-                                <UserCard
-                                    id={user.id}
-                                    name={user.name}
-                                    email={user.email} 
-                                    admin={user.admin}
-                                    // image={user.picture}
-                                />
+  render() {
+    const { isAdmin } = this.state;
+    return (
+      <button
+        className={isAdmin ? "Admin" : "Noadmin"}
+        onClick={this.handleAdmin}
+      >
+        {isAdmin ? "ADMIN" : "NO ADMIN"}
+      </button>
+    );
+  }
+}
 
-                                {(user?.admin === false) ? <button className="Noadmin" onClick={() => this.handleAdmin(user.id)}>NO ADMIN</button> : <button className="Admin" onClick={() => this.handleAdmin(user.id)}>ADMIN</button>}
+const mapStateToProps = (state) => ({
+  users: state.users,
+});
 
-                            </div>
-                        })}
-                    </div>
-                </div>
-            </div>
-        )
-    }
-};
-
-export const mapStateToProps = (state) => {
-    return {
-        users: state.users
-    }
-};
-
-export const mapDispatchToProps = (dispatch) => {
-    return {
-        getAllUsers: () => dispatch(actions.getAllUsers()),
-        setAdminUsers: (id) => {
-            dispatch(actions.setAdminUsers(id))
-        }
-    }
-};
+const mapDispatchToProps = (dispatch) => ({
+  getAllUsers: () => dispatch(actions.getAllUsers()),
+  setAdminUsers: (id) => dispatch(actions.setAdminUsers(id)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdministrarUsers);

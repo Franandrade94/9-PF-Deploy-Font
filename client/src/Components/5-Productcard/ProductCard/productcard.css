@@ -37,10 +37,26 @@
     padding: 4%;
     border-radius: 20px;
     margin-top: -5%;
+    color: rgb(94, 94, 94);
+    font-weight: bolder;
 }
 
 .productCarrito:hover {
     background-color: rgb(233, 175, 184);
+}
+
+.sacarproductCarrito{
+    background-color: rgb(147, 247, 101);
+    border: none;
+    padding: 4%;
+    border-radius: 20px;
+    margin-top: -5%;
+    color: rgb(94, 94, 94);
+    font-weight: bolder;
+}
+
+.sacarproductCarrito:hover {
+    background-color: rgb(109, 212, 61);
 }
 
 .SinStockImg{

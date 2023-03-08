@@ -47,6 +47,7 @@ const rootReducer = (state = initialState, action) => {
         }
 
         case actions.AGREGAR_CARRITO: return {
+            ...state,
             products: state.products,
             productDetail: {},
         }
@@ -65,6 +66,7 @@ const rootReducer = (state = initialState, action) => {
         }
         
         case actions.CREATE_USER: return {
+            ...state,
             users: [...state.users, action.payload],
             userDetail:{}
         }
@@ -75,6 +77,7 @@ const rootReducer = (state = initialState, action) => {
         }
 
         case actions.SET_ADMIN_USERS: return {
+            ...state,
             users: state.users.filter((item) => item.id !== action.payload),
             userDetail: {},
         }

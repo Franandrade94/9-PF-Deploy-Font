@@ -5,7 +5,7 @@ import sinstock from "../../../Images/sinstock.png"
 
 const ProductCard = (props) => {
 
-    const { id, name, image, price, handleCarrito } = props;
+    const { id, name, image, price, handleCarrito, carrito } = props;
 
     const addToCart = () => {
         handleCarrito(id);
@@ -33,7 +33,7 @@ const ProductCard = (props) => {
                     </Link>
                     <p className="productName">{name}</p>
                     <p className='productPrice'>${price}</p>  
-                    <button className='productCarrito' onClick={ addToCart }>agregar al carrito</button>
+                    {carrito === false ? <button className='productCarrito' onClick={ addToCart }>agregar al carrito</button> : <button className='sacarproductCarrito' onClick={ addToCart }>sacar del carrito</button>}
                 </div>)
                 }
             </div>

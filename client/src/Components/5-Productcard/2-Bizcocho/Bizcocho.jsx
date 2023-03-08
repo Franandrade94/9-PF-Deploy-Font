@@ -39,6 +39,7 @@ class Bizcocho extends Component {
                                     image={product.image}
                                     price={product.price}
                                     rating={product.rating}
+                                    carrito= {product.carrito}
                                     typeId= {product.TypeId}
                                 />
                             </div>

@@ -7,9 +7,11 @@ export default class Logo2 extends Component {
     render() {
         return (
             <div className="Logo-div2">
-                <Link to="/">
-                    <img className="Logo2" src={logo} alt="bonita-logo" />
-                </Link>
+                <div>
+                    <Link to="/">
+                        <img className="Logo2" src={logo} alt="bonita-logo" />
+                    </Link>
+                </div>
             </div>
         )
     }

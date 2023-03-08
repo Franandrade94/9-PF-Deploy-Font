@@ -67,7 +67,6 @@ export const restoreProduct = (id) => {
   }
 
 export const agregarCarrito = (id) => {
-    console.log(id, 'chauuu')
     return (dispatch) => {
         return axios.delete(`/products/carrito/${id}`)
             .then(res => dispatch({

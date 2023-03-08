@@ -8,6 +8,13 @@ import { Link } from "react-router-dom";
 
 class ProductosCarrito extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+          products2: [],
+          totalPrice: 0
+        };
+    }
 
     componentDidMount() {
         const search = this.props.location.search;
@@ -21,7 +28,9 @@ class ProductosCarrito extends Component {
         if (prevProps.products !== this.props.products) {
           // Si hay cambios en los productos, actualiza el estado
           const products = this.props.products;
+          console.log(products, "ANTES")
           const products2 = products?.filter((product) => product?.carrito === true);
+          console.log(products2, "DESPUES")
           let totalPrice = 0;
           products2?.forEach((product) => {
             totalPrice += product.price;
@@ -36,16 +45,9 @@ class ProductosCarrito extends Component {
 
     render(){
         
-        let products=[]
-        products = this.props.products 
-        const products2 = products?.filter(product => product?.carrito === true);
+        const { products2, totalPrice } = this.state;
   
-        let totalPrice = 0;
-        products2?.forEach((product) => {
-            totalPrice += product.price;
-          });
-
-        // console.log(this.props)
+        console.log(products2, "carritoCompras")
 
         return(
             <div className="CarritoProductCard-Container">
@@ -61,6 +63,7 @@ class ProductosCarrito extends Component {
                                     name={product.name}
                                     image={product.image}
                                     price={product.price}
+                                    carrito= {product.carrito}
                                     handleCarrito={this.handleCarrito}
                                 />
                                 
@@ -90,3 +93,4 @@ export const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductosCarrito);
+

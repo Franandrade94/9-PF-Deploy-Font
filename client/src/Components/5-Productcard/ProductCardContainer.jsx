@@ -6,83 +6,93 @@ import ProductCard from "./ProductCard/ProductCard";
 import Loading from "../6-Loading/Loading";
 
 class ProductCardContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products2: []
+    };
+  }
 
-    componentDidMount() {
-        const search = this.props.location.search;
-        let orderby = new URLSearchParams(search).get('orderby');
-        let types = new URLSearchParams(search).get('types');
-        let pricerange = new URLSearchParams(search).get('pricerange');
-        this.props.getAllProducts(orderby, types, pricerange)
+  componentDidMount() {
+    const search = this.props.location.search;
+    let orderby = new URLSearchParams(search).get('orderby');
+    let types = new URLSearchParams(search).get('types');
+    let pricerange = new URLSearchParams(search).get('pricerange');
+    this.props.getAllProducts(orderby, types, pricerange);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.products !== this.props.products) {
+      let products = this.props.products;
+      const products2 = products?.filter(product => product?.deleted === false);
+      console.log(products);
+      console.log(this.props);
+      this.setState({ products2: products2 }); // Actualizar el estado products2
     }
-
-    componentDidUpdate(prevProps, prevState) {
-        const { location, getAllProducts } = this.props;
-    
-        // Compara la ubicación anterior con la nueva ubicación
-        if (location !== prevProps.location) {
-          const search = location.search;
-          let orderby = new URLSearchParams(search).get("orderby");
-          let types = new URLSearchParams(search).get("types");
-          let pricerange = new URLSearchParams(search).get("pricerange");
-    
-          // Actualiza los productos utilizando la nueva ubicación
-          getAllProducts(orderby, types, pricerange);
-        }
-      }
-
-    handleCarrito = (id) => {
-        this.props.agregarCarrito(id);
+    // Verificar si hubo algún cambio en this.props.carrito
+    if (prevProps.carrito !== this.props.carrito) {
+      // Actualizar el estado local products2 con la propiedad carrito actualizada
+      const products2 = this.props.products?.filter(product => product?.deleted === false).map(product => {
+        const carrito = this.props.carrito.includes(product.id);
+        return { ...product, carrito };
+      });
+      this.setState({ products2 });
     }
+  }
 
-    render(){
-        
-        let products=[]
-        products = this.props.products 
-        const products2 = products?.filter(product => product?.deleted === false);
-  
-        
-        console.log(products)
-        console.log(this.props)
+  handleCarrito = (id) => {
+    this.props.agregarCarrito(id);
+  };
 
-        return(
-            <div className="ProductCard-Container">
-                <div>
-                    <div className="ProductCard-Home">
-                        {(products2?.length === 0) ? <Loading/>  : products2?.map((product) => {
-                            return <div key={product.id}>
-                                <ProductCard
-                                    id={product.id}
-                                    name={product.name}
-                                    quantity={product.quantity} 
-                                    description={product.descripton}
-                                    image={product.image}
-                                    price={product.price}
-                                    rating={product.rating}
-                                    typeId= {product.TypeId}
-                                    handleCarrito={this.handleCarrito}
-                                />
-                            </div>
-                        })}
-                    </div>
-                </div>
-            </div>
-        )
-    }
-};
+  render() {
+    return (
+      <div className="ProductCard-Container">
+        <div>
+          <div className="ProductCard-Home">
+            {this.state.products2?.length === 0 ? (
+              <Loading />
+            ) : (
+              this.state.products2?.map((product) => {
+                return (
+                  <div key={product.id}>
+                    <ProductCard
+                      id={product.id}
+                      name={product.name}
+                      quantity={product.quantity}
+                      description={product.descripton}
+                      image={product.image}
+                      price={product.price}
+                      rating={product.rating}
+                      typeId={product.TypeId}
+                      carrito={product.carrito}
+                      handleCarrito={this.handleCarrito}
+                    />
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 export const mapStateToProps = (state) => {
-    return {
-        products: state.products
-    }
+  return {
+    products: state.products,
+    carrito: state.carrito
+  };
 };
 
 export const mapDispatchToProps = (dispatch) => {
-    return {
-        getAllProducts: (orderby, types, pricerange) => dispatch(actions.getAllProducts(orderby, types, pricerange)),
-        agregarCarrito: (id) => {
-            dispatch(actions.agregarCarrito(id))},
+  return {
+    getAllProducts: (orderby, types, pricerange) =>
+      dispatch(actions.getAllProducts(orderby, types, pricerange)),
+    agregarCarrito: (id) => {
+      dispatch(actions.agregarCarrito(id));
     }
-    
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductCardContainer);
