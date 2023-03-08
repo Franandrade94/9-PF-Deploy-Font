@@ -53,14 +53,28 @@ function App({users, getAllUsers}) {
 
         <Administrador/> */}
 
-        { users2?.admin === false && <Administrador/>}
+        { users2?.admin === true && <Administrador/>}
      
         
-        { users2?.admin === false && <BotonCarrito/>}
+        { users2?.admin === false && <Route path="/" exact component={BotonCarrito}/>}
 
-        
+        { users2?.admin === false && <Route path="/products" exact component={BotonCarrito}/>}
+
+        { users2?.admin === false && <Route path="/products/animales" exact component={BotonCarrito}/>}
+
+        { users2?.admin === false && <Route path="/products/bizcocho" exact component={BotonCarrito}/>}
+
+        { users2?.admin === false && <Route path="/products/cemento" exact component={BotonCarrito}/>}
+
+        { users2?.admin === false && <Route path="/products/colgantes" exact component={BotonCarrito}/>}
+
+        { users2?.admin === false && <Route path="/products/fridas" exact component={BotonCarrito}/>}
+
+        { users2?.admin === false && <Route path="/products/otros" exact component={BotonCarrito}/>}
+
         { showWelcomePopUp && <WelcomePopUp/> }
 
+        
         <Route path="/" exact component={Home}/>
 
         <Route path="/products" exact component={Products}/>

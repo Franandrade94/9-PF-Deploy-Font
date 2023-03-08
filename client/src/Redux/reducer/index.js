@@ -65,16 +65,19 @@ const rootReducer = (state = initialState, action) => {
         }
         
         case actions.CREATE_USER: return {
+            ...state,
             users: [...state.users, action.payload],
             userDetail:{}
         }
 
         case actions.DELETE_USER: return {
             users: state.users,
+            reviews: [...state.reviews, action.payload],
             userDetail: {},
         }
 
         case actions.SET_ADMIN_USERS: return {
+            ...state,
             users: state.users.filter((item) => item.id !== action.payload),
             userDetail: {},
         }

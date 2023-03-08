@@ -58,9 +58,6 @@ export default class Nav extends Component {
             </li>
           </ul>
         </Link>
-        <Link to="" className="link">
-          Ofertas
-        </Link>
         <Link onClick={this.scrollToContacto} className="link">
           Contacto
         </Link>
