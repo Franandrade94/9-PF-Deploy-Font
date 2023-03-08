@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import ReviewForm from "./ReviweForm/ReviewForm";
+import { Link } from "react-router-dom";
 
 const ReviewPopUp = () => {
     const [isOpen, setIsOpen] = useState(true);
@@ -24,7 +25,9 @@ const ReviewPopUp = () => {
                 </ModalBody>
 
                 <ModalFooter>
-                    <Button color="secondary" onClick={toggleModal}>Inicio</Button>
+                    <Link to="/">
+                        <Button color="secondary" onClick={toggleModal}>Inicio</Button>
+                    </Link>
                 </ModalFooter>
             </Modal>
         </>

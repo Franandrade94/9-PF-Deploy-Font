@@ -2,6 +2,7 @@ import "./reviewform.css";
 import React, { useState } from "react";
 import * as actions from "../../../Redux/actions/index";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 const ReviewForm = (props) => {
@@ -72,10 +73,11 @@ const ReviewForm = (props) => {
                         className="inputcomentForm"
                     />
                 </label>
-
-                <button className="SendReview" type="submit">
-                    Send Review
-                </button>
+                <Link to="/">
+                    <button className="SendReview" type="submit">
+                        Send Review
+                    </button>
+                </Link>
                 </div>
             </form>
         </div>

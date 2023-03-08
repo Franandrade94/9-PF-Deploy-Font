@@ -42,8 +42,8 @@ const CreateProduct = () => {
         req.TypeId = typeArray;
         console.log(req, 'RATING FOMR');
         dispatch(actions.createProduct(req));
-      
-        console.log(req);
+       
+        console.log(req, "soy create req");
         alert("Product Create Successfully");
         setInput({
           name: "",
