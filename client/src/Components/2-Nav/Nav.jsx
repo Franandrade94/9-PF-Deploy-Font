@@ -23,8 +23,8 @@ export default class Nav extends Component {
           Nosotras
         </Link>
         <Link to="/products" className="link-P">
-          Productos
-          <p className="flecha">▼</p>
+          Productos ▼
+          
           <ul className="All-Products">
             <li>
               <Link className="navLinkAnimales" to="/products/animales">

@@ -20,8 +20,7 @@ export default class Nav3 extends Component {
                 <Link className="link3" to="/">Inicio</Link>
                 <Link onClick={this.scrollToNosotras} className="link3">Nosotras</Link>
                 <Link to="/products" className="link-P3">
-                    Productos   
-                    <p className="flecha3">▼</p>
+                    Productos ▼
                     <ul className="All-Products3">
                         <li>
                             <Link className="navLinkAnimales3" to="/products/animales">Animales</Link>

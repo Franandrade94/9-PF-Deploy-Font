@@ -19,8 +19,7 @@ export default class Nav2 extends Component {
                 <Link className="link2" to="/">Inicio</Link>
                 <Link onClick={this.scrollToNosotras} className="link2">Nosotras</Link>
                 <Link to="/products" className="link-P2">
-                    Productos   
-                    <p className="flecha2">▼</p>
+                    Productos ▼
                     <ul className="All-Products2">
                         <li>
                             <Link className="navLinkAnimales2" to="/products/animales">Animales</Link>
