@@ -12,7 +12,6 @@ function CheckoutForm({ price }) {
     const [ loading, setLoading] = useState(false);
     const [ showReviewPopUp, setShowReviewPopUp ] = useState(false);
     
-
     const handleSubmit = async (e) => {
         e.preventDefault();
     
