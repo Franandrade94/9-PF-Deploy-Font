@@ -46,16 +46,9 @@ function App({users, getAllUsers}) {
   return (
     <div className="App">
       <Router>
-
-      {/* <BotonCarrito/>
-
-      {/* */}
-
-        <Administrador/> 
-
+        
         { users2?.admin === true && <Administrador/>}
      
-        
         { users2?.admin === false && <Route path="/" exact component={BotonCarrito}/>}
 
         { users2?.admin === false && <Route path="/products" exact component={BotonCarrito}/>}
