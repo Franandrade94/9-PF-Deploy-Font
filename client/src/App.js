@@ -67,7 +67,7 @@ function App({users, getAllUsers}) {
 
         { users2?.admin === false && <Route path="/product/details/:id" exact component={BotonCarrito}/>}
 
-        { showWelcomePopUp && <WelcomePopUp/> }
+        { !users2 && <WelcomePopUp/> }
 
         
         <Route path="/" exact component={Home}/>
