@@ -18,7 +18,7 @@ export default class Nav3 extends Component {
         return (
             <div className="nav3">
                 <Link className="link3" to="/">Inicio</Link>
-                <Link onClick={this.scrollToNosotras} className="link3">Nosotras</Link>
+                <Link to="/" className="link3">Nosotras</Link>
                 <Link to="/products" className="link-P3">
                     Productos ▼
                     <ul className="All-Products3">
@@ -42,7 +42,7 @@ export default class Nav3 extends Component {
                         </li>
                     </ul>
                 </Link>
-                <Link onClick={this.scrollToContacto} className="link3">Contacto</Link>
+                <Link to="/" className="link3">Contacto</Link>
             </div>
         )
     }

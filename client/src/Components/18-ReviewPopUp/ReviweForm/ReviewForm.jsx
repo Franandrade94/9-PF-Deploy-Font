@@ -2,27 +2,26 @@ import "./reviewform.css";
 import React, { useState } from "react";
 import * as actions from "../../../Redux/actions/index";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 
 const ReviewForm = (props) => {
-    
-    const [ input, setInput] = useState(
-        {
-            name: "",
-            productname: "",
-            comment: "", 
-        }
-    )
+    const [input, setInput] = useState({
+        name: "",
+        productname: "",
+        comment: "",
+    });
+
+    const [submitted, setSubmitted] = useState(false);
 
     const handleInputChange = (e) => {
-        const {name, value } = e.target;
+        const { name, value } = e.target;
 
         setInput({
             ...input,
             [name]: value,
         });
-    }
+    };
 
     const dispatch = useDispatch();
 
@@ -33,55 +32,58 @@ const ReviewForm = (props) => {
         dispatch(actions.createReview(req));
 
         console.log(req, "soy REQ");
-        alert("Review send Successfully");
-    }
+        
 
+        setSubmitted(true);
+    };
+
+    if (submitted) {
+        return <Redirect to="/" />;
+    }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <div className="ReviewFormContainer">
-                <label className="NameFormR">
-                    Name:
-                    <input
-                        type="text"
-                        name="name"
-                        onChange={ handleInputChange }
-                        required= {false}
-                        className="inputNameForm"
-                    />
-                </label>
+                    <label className="NameFormR">
+                        Name:
+                        <input
+                            type="text"
+                            name="name"
+                            onChange={handleInputChange}
+                            required={false}
+                            className="inputNameForm"
+                        />
+                    </label>
 
-                <label>
-                    Product Name:
-                    <input
-                        type="text"
-                        name="productname"
-                        onChange={ handleInputChange }
-                        required= {false}
-                        className="inputProductNameForm"
-                    />
-                </label>
+                    <label>
+                        Product Name:
+                        <input
+                            type="text"
+                            name="productname"
+                            onChange={handleInputChange}
+                            required={false}
+                            className="inputProductNameForm"
+                        />
+                    </label>
 
-                <label>
-                    Dejanos tu comentario:
-                    <input
-                        type="text"
-                        name="comment"
-                        onChange={handleInputChange}
-                        required={false}
-                        className="inputcomentForm"
-                    />
-                </label>
-                <Link to="/">
+                    <label>
+                        Dejanos tu comentario:
+                        <input
+                            type="text"
+                            name="comment"
+                            onChange={handleInputChange}
+                            required={false}
+                            className="inputcomentForm"
+                        />
+                    </label>
                     <button className="SendReview" type="submit">
                         Send Review
                     </button>
-                </Link>
                 </div>
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default ReviewForm;

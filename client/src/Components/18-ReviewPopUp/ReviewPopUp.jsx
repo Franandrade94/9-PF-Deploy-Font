@@ -15,7 +15,7 @@ const ReviewPopUp = () => {
     return (
         <>
             <Modal isOpen={isOpen} toggle={toggleModal}>
-                <ModalHeader toggle={toggleModal}>
+                <ModalHeader>
                     <h3 className="CompraH3">Muchas Gracias por su compra!</h3>
                 </ModalHeader>
 
