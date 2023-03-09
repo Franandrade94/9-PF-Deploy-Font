@@ -6,6 +6,7 @@
 .secundario{
    margin: 0 auto;  
 }
+
 .PopUp-Container{
     padding: 1%;
 }
@@ -25,4 +26,19 @@
     text-align: center;
     color: rgb(126, 126, 126);
     font-weight: bolder;
+}
+
+@media only screen and (max-width: 768px) {
+    .PopUp-Container {
+        padding: 5%;
+        max-width: 100%;
+    }
+    
+    .PopUp-Header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .PopUp-Body p {
+        font-size: 1rem;
+    }
 }

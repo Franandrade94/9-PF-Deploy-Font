@@ -16,7 +16,9 @@ class WelcomePopUp extends Component {
 
         const modalStyles={
             position: "absolute",
-            transform: "translate(91%, 47%)"
+            transform: "translate(50%, 50%)",
+            maxWidth: "90%",
+            width: "auto"
         }
 
         return(
