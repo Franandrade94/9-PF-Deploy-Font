@@ -26,11 +26,7 @@ import ReviewPopUp from "./Components/18-ReviewPopUp/ReviewPopUp";
 
 function App({users, getAllUsers}) {
 
-  <ProtectedRoute
-  path="/"
-  component={<Administrador/>}
-  isAuthenticated={isAuthenticated}
-/>
+ 
 
   const [showWelcomePopUp, setShowWelcomePopUp] = useState(false);
 
@@ -54,6 +50,12 @@ function App({users, getAllUsers}) {
     <div className="App">
       <Router>
         
+      <ProtectedRoute
+        path="/"
+        component={<Administrador/>}
+        isAuthenticated={isAuthenticated}
+      />
+
         { users2?.admin === true && <Administrador/>}
      
         { users2?.admin === false && <Route path="/" exact component={BotonCarrito}/>}
