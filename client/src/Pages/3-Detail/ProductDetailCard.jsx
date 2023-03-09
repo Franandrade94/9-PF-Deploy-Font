@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Logo2 from "../../Components/1-Logo/Logo2";
 import Nav from "../../Components/2-Nav/Nav2";
 import star from "../../Images/Staricon.png";
+import Loading from "../../Components/6-Loading/Loading"
 
 
 class ProductDetailCard extends Component {
@@ -62,7 +63,9 @@ class ProductDetailCard extends Component {
 
                 <Logo2/>
                 <Nav/>
-                            
+
+                {(product.image === undefined) ? <Loading/> :
+
                 <div className="AllDetailCard">
                 
                     <div className="DetailCardContainer">
@@ -89,6 +92,7 @@ class ProductDetailCard extends Component {
                         </div>   
                     </div>        
                 </div>
+            }
             </div>
         )
     }
