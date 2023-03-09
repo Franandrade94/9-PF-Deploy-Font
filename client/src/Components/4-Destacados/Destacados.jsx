@@ -9,13 +9,30 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 class Destacados extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      products2: []
+    };
+  }
+  
   componentDidMount() {
     this.props.getAllProducts();
   }
 
-  handleCarrito = (id) => {
-    this.props.agregarCarrito(id);
+  componentWillUpdate(){
+    console.log("aaaaa")
   }
+  componentWillReceiveProps(){
+    console.log("dsd")
+  }
+  handleAgregarCarrito = (id) => {
+    this.props.agregarCarrito(id);
+  };
+  handleSacarCarrito = (id) => {
+    this.props.sacarDelCarrito(id);
+  };
 
 
   render() {
@@ -78,7 +95,8 @@ class Destacados extends Component {
                     price={product.price}
                     rating={product.rating}
                     typeId={product.TypeId}
-                    handleCarrito={this.handleCarrito}
+                    handleAgregarCarrito={this.handleAgregarCarrito}
+                    handleSacarCarrito={this.handleSacarCarrito}
                   />
                 </div>
               );
@@ -93,14 +111,16 @@ class Destacados extends Component {
 export const mapStateToProps = (state) => {
   return {
     products: state.products,
+    carrito: state.carrito
   };
 };
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-    getAllProducts: () => dispatch(actions.getAllProducts()),
-    agregarCarrito: (id) => {
-      dispatch(actions.agregarCarrito(id))},
+    getAllProducts: (orderby, types, pricerange) =>
+      dispatch(actions.getAllProducts(orderby, types, pricerange)),
+    agregarCarrito: (id) => dispatch(actions.agregarCarrito(id)),
+    sacarDelCarrito: (id) => dispatch(actions.sacarDelCarrito(id)) 
   };
 };
 

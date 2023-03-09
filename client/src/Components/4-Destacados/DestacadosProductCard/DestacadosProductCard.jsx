@@ -5,10 +5,14 @@ import { Link } from "react-router-dom";
 
 const DestacadosProdcutCard = (props) => {
 
-    const { id, name, image, price, handleCarrito } = props;
+    const { id, name, image, price, handleSacarCarrito, handleAgregarCarrito, carrito } = props;
 
     const addToCart = () => {
-        handleCarrito(id);
+        handleAgregarCarrito(id);
+    }
+
+    const deleteToCart = () => {
+        handleSacarCarrito(id);
     }
 
     return (
@@ -20,7 +24,7 @@ const DestacadosProdcutCard = (props) => {
                     </Link>
                     <p className="destacadosproductName">{name}</p>
                     <p className='destacadosproductPrice'>${price}</p>  
-                    <button className='destacadosproductCarrito' onClick={ addToCart }>agregar al carrito</button>
+                    {carrito === false ? <button className='destacadosproductCarrito' onClick={ addToCart }>agregar al carrito</button> : <button className='destacadossacarproductCarrito' onClick={ deleteToCart }>sacar del carrito</button>}
                 </div>
             </div>
         </div>

@@ -38,9 +38,24 @@
     padding: 4%;
     border-radius: 20px;
     margin-top: -5%;
+    color: rgb(94, 94, 94);
+    font-weight: bolder;
 }
 
 .destacadosproductCarrito:hover {
     background-color: rgb(233, 175, 184);
 }
 
+.destacadossacarproductCarrito{
+    background-color: rgb(147, 247, 101);
+    border: none;
+    padding: 4%;
+    border-radius: 20px;
+    margin-top: -5%;
+    color: rgb(94, 94, 94);
+    font-weight: bolder;
+}
+
+.destacadossacarproductCarrito:hover{
+    background-color: rgb(109, 212, 61);
+}
