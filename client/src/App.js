@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import * as actions from "./Redux/actions/index";
-
 import Home from './Pages/1-Home/Home';
 import Products from './Pages/2-Product/Product';
 import ProductDetailCard from './Pages/3-Detail/ProductDetailCard'
@@ -50,12 +48,6 @@ function App({users, getAllUsers}) {
     <div className="App">
       <Router>
         
-      <ProtectedRoute
-        path="/"
-        component={<Administrador/>}
-        isAuthenticated={isAuthenticated}
-      />
-
         { users2?.admin === true && <Administrador/>}
      
         { users2?.admin === false && <Route path="/" exact component={BotonCarrito}/>}
@@ -124,14 +116,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-function ProtectedRoute({ component: Component, isAuthenticated, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        isAuthenticated ? <Component {...props} /> : <Redirect to="/" />
-      }
-    />
-  );
-}
