@@ -58,7 +58,6 @@ class ProductosCarrito extends Component {
             <div className="CarritoProductCard-Container">
                 <div>
                     <div className="CarritoProductCard-Home">
-                        <button className='Vaciar-Carrito' onClick={this.handleVaciarCarrito}>Vaciar carrito</button>
                         {(products2?.length === 0) ? <h3 className="carritovacio">carrito vacio</h3>: 
                         products2?.map((product) => {
                             return <div key={product.id}>
