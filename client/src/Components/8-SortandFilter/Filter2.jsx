@@ -17,7 +17,8 @@ export default class Filter2 extends Component {
 
     sortAction() {
         let priceRange = this.state.priceRange.join(',')
-        window.location.replace(window.location.href.split('?')[0] + `pricerange=${priceRange}`)
+        
+        window.location.replace(window.location.href.split('?')[0] + `?pricerange=${priceRange}`)
     }
 
     addPriceRange(e){
