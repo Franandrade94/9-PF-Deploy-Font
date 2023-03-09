@@ -46,6 +46,7 @@ class ProductDetailCard extends Component {
         this.setState({ carrito: false });
       };
 
+        users = JSON.parse(localStorage.getItem('user'))
 
     render() {
         
@@ -81,7 +82,7 @@ class ProductDetailCard extends Component {
                             
                             <p>Stock: {product.quantity}</p>
                             
-                            {this.state.carrito === false ? <button className='macetacardCarrito' onClick={ () => this.handleAgregarCarrito(product.id) }>agregar al carrito</button> : <button className='macetacardCarritosacar' onClick={ () => this.handleSacarCarrito(product.id) }>sacar del carrito</button>}
+                            { (users?.admin === false)  && (this.state.carrito === false ? <button className='macetacardCarrito' onClick={ () => this.handleAgregarCarrito(product.id) }>agregar al carrito</button> : <button className='macetacardCarritosacar' onClick={ () => this.handleSacarCarrito(product.id) }>sacar del carrito</button>)}
 
                         </div>   
                     </div>        

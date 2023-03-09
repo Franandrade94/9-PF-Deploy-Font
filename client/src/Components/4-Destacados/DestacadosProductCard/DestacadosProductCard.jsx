@@ -15,6 +15,8 @@ const DestacadosProdcutCard = (props) => {
         handleSacarCarrito(id);
     }
 
+    const users = JSON.parse(localStorage.getItem('user'))
+
     return (
         <div className="AllDestacadosProducts">
             <div className="destacados-product-Container">
@@ -24,7 +26,7 @@ const DestacadosProdcutCard = (props) => {
                     </Link>
                     <p className="destacadosproductName">{name}</p>
                     <p className='destacadosproductPrice'>${price}</p>  
-                    {carrito === false ? <button className='destacadosproductCarrito' onClick={ addToCart }>agregar al carrito</button> : <button className='destacadossacarproductCarrito' onClick={ deleteToCart }>sacar del carrito</button>}
+                    {(users?.admin === false)  && (carrito === false ? <button className='destacadosproductCarrito' onClick={ addToCart }>agregar al carrito</button> : <button className='destacadossacarproductCarrito' onClick={ deleteToCart }>sacar del carrito</button> )}
                 </div>
             </div>
         </div>
