@@ -38,7 +38,7 @@ const ProductCard = (props) => {
                     </Link>
                     <p className="productName">{name}</p>
                     <p className='productPrice'>${price}</p>  
-                   { JSON.parse(localStorage.getItem('user')) && carrito === false ? <button className='productCarrito' onClick={ addToCart }>agregar al carrito</button> : <button className='sacarproductCarrito' onClick={ deleteToCart }>sacar del carrito</button>}
+                   { JSON.parse(localStorage.getItem('user')) && ( carrito === false ? <button className='productCarrito' onClick={ addToCart }>agregar al carrito</button> : <button className='sacarproductCarrito' onClick={ deleteToCart }>sacar del carrito</button>)}
                 </div>)
                 }
             </div>
