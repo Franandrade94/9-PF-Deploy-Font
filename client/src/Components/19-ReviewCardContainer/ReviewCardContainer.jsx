@@ -9,9 +9,29 @@ import "slick-carousel/slick/slick-theme.css";
 
 class ReviewCardContainer extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+          reviews2: []
+        };
+      }
+
     componentDidMount() {
         this.props.getAllReviews();
     }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.reviews.length !== this.props.reviews.length) {
+          this.props.getAllReviews();
+        }
+      }
+
+    componentWillUpdate(){
+        console.log("aaaaa")
+      }
+      componentWillReceiveProps(){
+        console.log("dsd")
+      }
 
     render(){
         let reviews=[]
