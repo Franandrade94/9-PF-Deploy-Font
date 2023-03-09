@@ -10,8 +10,8 @@ import axios from 'axios';
 
 //const clientID= process.env.MY_CLIENT_ID;
 
-//axios.defaults.baseURL = 'http://localhost:3001'
-axios.defaults.baseURL = 'https://pfhenry-back-production.up.railway.app/';
+axios.defaults.baseURL = 'http://localhost:3001'
+//axios.defaults.baseURL = 'https://pfhenry-back-production.up.railway.app/';
 
 ReactDOM.render(
   <React.StrictMode>

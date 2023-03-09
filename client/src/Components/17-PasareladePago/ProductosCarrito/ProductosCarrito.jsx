@@ -40,20 +40,25 @@ class ProductosCarrito extends Component {
       }
 
     handleCarrito = (id) => {
-        this.props.agregarCarrito(id);
+        this.props.sacarCarrito(id);
     }
+
+    handleVaciarCarrito = () => {
+        const { products2 } = this.state;
+        let carrito = products2
+        this.props.vaciarCarrito(carrito);
+    }
+
 
     render(){
         
         const { products2, totalPrice } = this.state;
-  
-        console.log(products2, "carritoCompras")
 
         return(
             <div className="CarritoProductCard-Container">
                 <div>
                     <div className="CarritoProductCard-Home">
-                        <button className='Vaciar-Carrito'>Vaciar carrito</button>
+                        <button className='Vaciar-Carrito' onClick={this.handleVaciarCarrito}>Vaciar carrito</button>
                         {(products2?.length === 0) ? <h3 className="carritovacio">carrito vacio</h3>: 
                         products2?.map((product) => {
                             return <div key={product.id}>
@@ -87,9 +92,10 @@ export const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
     return {
         getAllProducts: (orderby, types, pricerange) => dispatch(actions.getAllProducts(orderby, types, pricerange)),  
-        agregarCarrito: (id) => {
-            dispatch(actions.agregarCarrito(id))},
-    }  
+        sacarCarrito: (id) => 
+            dispatch(actions.sacarDelCarrito(id)),
+        vaciarCarrito: (carrito) => dispatch(actions.vaciarCarrito(carrito))    
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductosCarrito);

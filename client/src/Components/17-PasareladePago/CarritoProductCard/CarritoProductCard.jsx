@@ -8,7 +8,6 @@ const CarritoProductCard = (props) => {
     const addToCart = () => {
         handleCarrito(id);
     }
-
     return (
         <div className="AllCarritoProducts">
             <div className="Carritoproduct-Container">

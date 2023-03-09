@@ -21,6 +21,7 @@ class ProductCardContainer extends Component {
     this.props.getAllProducts(orderby, types, pricerange);
   }
 
+  /*
   componentDidUpdate(prevProps) {
     if (prevProps.products !== this.props.products) {
       let products = this.props.products;
@@ -39,20 +40,30 @@ class ProductCardContainer extends Component {
       this.setState({ products2 });
     }
   }
+  */
 
-  handleCarrito = (id) => {
+  componentWillUpdate(){
+    console.log("aaaaa")
+  }
+  componentWillReceiveProps(){
+    console.log("dsd")
+  }
+  handleAgregarCarrito = (id) => {
     this.props.agregarCarrito(id);
   };
-
+  handleSacarCarrito = (id) => {
+    this.props.sacarDelCarrito(id);
+  };
   render() {
+
     return (
       <div className="ProductCard-Container">
         <div>
           <div className="ProductCard-Home">
-            {this.state.products2?.length === 0 ? (
+            {this.props.products?.length === 0 ? (
               <Loading />
             ) : (
-              this.state.products2?.map((product) => {
+              this.props.products?.map((product) => {
                 return (
                   <div key={product.id}>
                     <ProductCard
@@ -65,7 +76,9 @@ class ProductCardContainer extends Component {
                       rating={product.rating}
                       typeId={product.TypeId}
                       carrito={product.carrito}
-                      handleCarrito={this.handleCarrito}
+                      handleAgregarCarrito={this.handleAgregarCarrito}
+                      handleSacarCarrito={this.handleSacarCarrito}
+
                     />
                   </div>
                 );
@@ -89,9 +102,10 @@ export const mapDispatchToProps = (dispatch) => {
   return {
     getAllProducts: (orderby, types, pricerange) =>
       dispatch(actions.getAllProducts(orderby, types, pricerange)),
-    agregarCarrito: (id) => {
-      dispatch(actions.agregarCarrito(id));
-    }
+    agregarCarrito: (id) => dispatch(actions.agregarCarrito(id)),
+    sacarDelCarrito: (id) => dispatch(actions.sacarDelCarrito(id))
+
+    
   };
 };
 

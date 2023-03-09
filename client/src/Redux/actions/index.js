@@ -5,7 +5,9 @@ export const GET_PRODUCTS_DETAIL = "GET_PRODUCTS_DETAIL";
 export const CREATE_PRODUCT = "CREATE_PRODUCT";
 export const DELETE_PRODUCT = "DELETE_PRODUCT";
 export const RESTORE_PRODUCT = "RESTORE_PRODUCT";
-export const AGREGAR_CARRITO = "AGREGAR_CARRITO"
+export const AGREGAR_CARRITO = "AGREGAR_CARRITO";
+export const SACAR_CARRITO = "SACAR_CARRITO";
+export const VACIAR_CARRITO = "VACIAR_CARRITO";
 export const GET_ALL_USERS = "GET_ALL_USERS";
 export const GET_USER_DETAILS = "GET_USER_DETAILS";
 export const CREATE_USER ="CREATE_USER";
@@ -68,9 +70,31 @@ export const restoreProduct = (id) => {
 
 export const agregarCarrito = (id) => {
     return (dispatch) => {
-        return axios.delete(`/products/carrito/${id}`)
+        return axios.get(`/products/carrito/${id}`)
             .then(res => dispatch({
                 type: AGREGAR_CARRITO,
+                payload: res.data
+            })
+        )
+    }
+}
+
+export const sacarDelCarrito = (id) => {
+    return (dispatch) => {
+        return axios.delete(`/products/carrito/${id}`)
+            .then(res => dispatch({
+                type: SACAR_CARRITO,
+                payload: res.data
+            })
+        )
+    }
+};
+
+export const vaciarCarrito = (carrito) => {
+    return (dispatch) => {
+        return axios.post(`/products/carrito`, {carrito})
+            .then(res => dispatch({
+                type: VACIAR_CARRITO,
                 payload: res.data
             })
         )

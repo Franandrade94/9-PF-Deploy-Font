@@ -21,7 +21,6 @@ const rootReducer = (state = initialState, action) => {
         }
         case actions.GET_PRODUCTS_DETAIL: return{
             ...state,
-            products: [],
             productDetail: action.payload,
         }
         case actions.CREATE_PRODUCT: return {
@@ -46,10 +45,22 @@ const rootReducer = (state = initialState, action) => {
             productDetail: {},
         }
 
-        case actions.AGREGAR_CARRITO: return {
+        case actions.AGREGAR_CARRITO: 
+        return {
             ...state,
-            products: state.products,
-            productDetail: {},
+            products: state?.products?.map(p => (p.id === action.payload.id)?action.payload: p),
+        }
+
+        
+        case actions.SACAR_CARRITO: return {
+            ...state,
+            products:  state?.products?.map(p => (p.id === action.payload.id)?action.payload: p),
+        }
+
+        case actions.VACIAR_CARRITO: 
+        return {
+            ...state,
+          products: state?.products?.map(p => p.carrito = "false")
         }
 
         case actions.GET_ALL_USERS:

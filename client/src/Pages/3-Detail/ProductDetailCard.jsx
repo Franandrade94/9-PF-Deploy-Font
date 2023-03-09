@@ -71,8 +71,8 @@ export const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
     return {
         getProductDetail: (id) => dispatch(actions.getProductDetail(id)),
-        agregarCarrito: (id) => {
-            dispatch(actions.agregarCarrito(id))},
+        agregarCarrito: (id) => 
+            dispatch(actions.agregarCarrito(id)),
     }
 }
 
