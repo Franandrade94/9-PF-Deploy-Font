@@ -95,6 +95,7 @@ class Destacados extends Component {
                     price={product.price}
                     rating={product.rating}
                     typeId={product.TypeId}
+                    carrito={product.carrito}
                     handleAgregarCarrito={this.handleAgregarCarrito}
                     handleSacarCarrito={this.handleSacarCarrito}
                   />
