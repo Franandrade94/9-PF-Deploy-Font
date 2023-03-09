@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import * as actions from "./Redux/actions/index";
 
 import Home from './Pages/1-Home/Home';
@@ -24,6 +25,12 @@ import ReviewPopUp from "./Components/18-ReviewPopUp/ReviewPopUp";
 
 
 function App({users, getAllUsers}) {
+
+  <ProtectedRoute
+  path="/"
+  component={<Administrador/>}
+  isAuthenticated={isAuthenticated}
+/>
 
   const [showWelcomePopUp, setShowWelcomePopUp] = useState(false);
 
@@ -115,3 +122,14 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+function ProtectedRoute({ component: Component, isAuthenticated, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        isAuthenticated ? <Component {...props} /> : <Redirect to="/" />
+      }
+    />
+  );
+}
