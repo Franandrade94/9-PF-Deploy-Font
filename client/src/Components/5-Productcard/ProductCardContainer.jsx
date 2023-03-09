@@ -6,6 +6,7 @@ import ProductCard from "./ProductCard/ProductCard";
 import Loading from "../6-Loading/Loading";
 
 class ProductCardContainer extends Component {
+
   constructor(props) {
     super(props);
     this.state = {

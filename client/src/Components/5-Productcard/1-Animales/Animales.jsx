@@ -7,6 +7,13 @@ import Loading from "../../6-Loading/Loading";
 
 class Animales extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+          products2: []
+        };
+      }
+
     componentDidMount() {
         const search = this.props.location.search;
         let orderby = new URLSearchParams(search).get('orderby');
@@ -14,6 +21,20 @@ class Animales extends Component {
         let pricerange = new URLSearchParams(search).get('pricerange');
         this.props.getAllProducts(orderby, types, pricerange)
     }
+
+    componentWillUpdate(){
+        console.log("aaaaa")
+      }
+      componentWillReceiveProps(){
+        console.log("dsd")
+      }
+      handleAgregarCarrito = (id) => {
+        this.props.agregarCarrito(id);
+      };
+      handleSacarCarrito = (id) => {
+        this.props.sacarDelCarrito(id);
+      };
+
     render(){
         
         let products=[]
@@ -41,6 +62,9 @@ class Animales extends Component {
                                     rating={product.rating}
                                     carrito= {product.carrito}
                                     typeId= {product.TypeId}
+                                    handleAgregarCarrito={this.handleAgregarCarrito}
+                                    handleSacarCarrito={this.handleSacarCarrito}
+
                                 />
                             </div>
                         })}
@@ -53,14 +77,18 @@ class Animales extends Component {
 
 export const mapStateToProps = (state) => {
     return {
-        products: state.products
+        products: state.products,
+        carrito: state.carrito
     }
 };
 
 export const mapDispatchToProps = (dispatch) => {
     return {
-        getAllProducts: (orderby, types, pricerange) => dispatch(actions.getAllProducts(orderby, types, pricerange))
+        getAllProducts: (orderby, types, pricerange) => dispatch(actions.getAllProducts(orderby, types, pricerange)),
+        agregarCarrito: (id) => dispatch(actions.agregarCarrito(id)),
+        sacarDelCarrito: (id) => dispatch(actions.sacarDelCarrito(id))
+    
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Animales);
