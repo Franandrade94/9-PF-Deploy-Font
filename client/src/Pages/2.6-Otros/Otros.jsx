@@ -2,7 +2,7 @@ import "./otros.css";
 import React, { Component } from "react";
 import Logo from "../../Components/1-Logo/Logo2";
 import Nav from "../../Components/2-Nav/Nav3";
-import BurgerMenu from "../../Components/11-BurgerMenu/1-BurgerMenuProductFilter/BurgerMenuProductFilter";
+import BurgerMenu2 from "../../Components/11-BurgerMenu/1-BurgerMenuProductFilter/BurgerMenuProductFilter2";
 import OtroComponent from "../../Components/5-Productcard/6-Otros/Otros"
 
 export default class Otros extends Component {
@@ -12,7 +12,7 @@ export default class Otros extends Component {
                 <div>
                     <Logo/>
                     <Nav/>
-                    <BurgerMenu/> 
+                    <BurgerMenu2/> 
                     <OtroComponent location={this.props.location}/>               
                 </div>
             </div>
