@@ -1,48 +1,212 @@
 import "./nav2.css";
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import styled from "styled-components";
+import BurgerButtonNav from "./BurgerButtonNav/BurgerButtonNav";
 import { animateScroll as scroll } from "react-scroll";
+import { Link } from "react-router-dom";
 
-export default class Nav2 extends Component {
 
-    scrollToContacto = () => {
-        scroll.scrollTo(document.getElementById("contacto").offsetTop);
-      };
-    
-      scrollToNosotras = () => {
-        scroll.scrollTo(document.getElementById("nosotras").offsetTop);
-      };
+function Nav2() {
 
-    render() {
-        return (
-            <div className="nav2">
-                <Link className="link2" to="/">Inicio</Link>
-                <Link to="/" className="link2">Nosotras</Link>
-                <Link to="/products" className="link-P2">
-                    Productos ▼
-                    <ul className="All-Products2">
-                        <li>
-                            <Link className="navLinkAnimales2" to="/products/animales">Animales</Link>
-                        </li>
-                        <li>
-                            <Link className="navLinkBizcocho2" to="/products/bizcocho">Bizcocho Cerámico</Link>
-                        </li>
-                        <li>
-                            <Link className="navLinkCemento2" to="/products/cemento">Cemento</Link>
-                        </li>
-                        <li>
-                            <Link className="navLinkColgante2" to="/products/colgantes">Colgantes</Link>
-                        </li>
-                        <li>
-                            <Link className="navLinkFridas2" to="/products/fridas">Fridas & Baby</Link>
-                        </li>
-                        <li>
-                            <Link className="navLinkOtros2" to="/products/otros">Otros</Link>
-                        </li>
-                    </ul>
-                </Link>
-                <Link to="/" className="link2">Contacto</Link>
-            </div>
-        )
+  const [burger_classNav, setBurgerClassNav] = useState("burger-barNav unclicked")
+  const [menu_classNav, setMenuClassNav] = useState("menuNav hidden")
+  const [isMenuClickedNav, setIsMenuClickedNav] = useState(false)
+
+  const updateMenuNav = () => {
+      if (!isMenuClickedNav) {
+          setBurgerClassNav("burger-barNav clicked")
+          setMenuClassNav("menuNav visible")
+      }
+      else {
+          setBurgerClassNav("burger-barNav unclicked")
+          setMenuClassNav("menuNav hidden")
+      }
+      setIsMenuClickedNav(!isMenuClickedNav)
+  }
+
+  const [ clicked, setClicked ] = useState(false);
+
+  const handleClick = () => {
+      setClicked(!clicked)
+  }
+
+  const scrollToContacto = () => {
+      scroll.scrollTo(document.getElementById("contacto").offsetTop);
+    };
+  
+    const scrollToNosotras = () => {
+      scroll.scrollTo(document.getElementById("nosotras").offsetTop);
+    };
+
+    const handleClickContacto = () => {
+      scrollToContacto();
+      
     }
-}
+
+
+
+    return(
+        <>
+            <NavBar>
+                <div className={`links ${ clicked ? 'active' : '' }`}>
+                    
+                    {window.innerWidth <= 768 ? 
+                     (  
+                    <div> 
+                      <a onClick={handleClick} href="/">Home</a>
+                      
+                      <Link to="" onClick={scrollToNosotras}>
+                        <a>Nosotras</a>
+                      </Link>
+                      
+                      <div>
+                          <nav className="Menu-Nav">
+                            <div className="burger-menuNav">
+                              <div className={burger_classNav} onClick={updateMenuNav}>
+                                <button className="Productos-btn"><p>Productos ▼</p></button>
+                              </div>
+                            </div>
+                          </nav>
+                        <div className={menu_classNav}>
+                          <ul className="Products-All">
+                              <li><a onClick={handleClick} href="/products/animales">Todos</a></li>
+                              <li><a onClick={handleClick} href="/products/animales">Animales</a></li>
+                              <li><a onClick={handleClick} href="/products/bizcocho">Bizcocho Cerámico</a></li>
+                              <li><a onClick={handleClick} href="/products/cemento">Cemento</a></li>
+                              <li><a onClick={handleClick} href="/products/colgantes">Colgantes</a></li>
+                              <li><a onClick={handleClick} href="/products/fridas">Fridas & Babies</a></li>
+                              <li><a onClick={handleClick} href="/products/otros">Otros</a></li>
+                          </ul>
+                        </div>
+                        <Link onClick={handleClickContacto}  to="" >
+                          <a className="contact">Contacto</a>
+                        </Link>
+                      </div> 
+
+                    </div>      
+                        ) : (
+                    <div>
+                        <a onClick={handleClick} href="/">Home</a>
+                      
+                        <Link to="" onClick={scrollToNosotras}>
+                          <a>Nosotras</a>
+                        </Link>
+
+                        <a onClick={handleClick} href="/products" className="Products">Productos ▼
+                            <ul className="Products-All">
+                                <li><a onClick={handleClick} href="/products/animales">Animales</a></li>
+                                <li><a onClick={handleClick} href="/products/bizcocho">Bizcocho Cerámico</a></li>
+                                <li><a onClick={handleClick} href="/products/cemento">Cemento</a></li>
+                                <li><a onClick={handleClick} href="/products/colgantes">Colgantes</a></li>
+                                <li><a onClick={handleClick} href="/products/fridas">Fridas & Babies</a></li>
+                                <li><a onClick={handleClick} href="/products/otros">Otros</a></li>
+                            </ul>
+                        </a>
+                        <Link onClick={handleClickContacto}  to="" >
+                          <a className="contact">Contacto</a>
+                        </Link>
+                      </div>)
+                    }
+                    
+                </div>
+                <div className="Burguer">
+                    <BurgerButtonNav clicked={clicked} handleClick={handleClick}/>
+                </div> 
+                <BgDiv className={`initial ${ clicked ? 'active' : '' }`}> </BgDiv>
+            </NavBar>
+        </>
+    )
+};
+
+export default Nav2;
+
+const NavBar = styled.nav`
+    
+    padding: .8rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(191, 191, 191);
+
+    a{
+        color: white;
+        text-decoration: none;
+        margin-right: 2rem;
+    }
+
+    .links{
+        position: absolute;
+        top: -7000%;
+        left: -20000%;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        z-index: 2;
+        a{
+            color: black;
+            font-size: 17px;
+            display: block;
+        }
+
+        
+        @media(min-width: 768px){
+            position: initial;
+            margin: auto;
+            a{
+                font-size: 18px;
+                color: rgb(103, 103, 103);
+                display: inline;
+
+                &:hover{
+                    color: rgb(30, 30, 30); 
+                }
+            }
+        }
+    }
+
+    .links.active{
+        width: 100%;
+        display: block;
+        position: absolute;
+        margin-left: 5%;
+        margin-right: auto;
+        top: 20%;
+        left: 0;
+        right: 0;
+        text-align: left;
+        a{
+            font-size: 17px;
+            margin-top: 1rem;
+            color: rgb(103, 103, 103);
+
+            &:hover{
+                color: rgb(30, 30, 30); 
+            }
+        }
+    }
+
+    .Burguer{
+        @media(min-width: 768px){
+            display: none;
+        }
+    }
+`
+
+const BgDiv = styled.div`
+    position: absolute;
+    background-color: rgb(230, 230, 230);
+    top: -7000%;
+    left: -20000%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    &.active{
+        width: 50%;
+        height: 25.5vh;
+        margin-top: 31%;
+        top: 0;
+        left: 0;
+    }
+`

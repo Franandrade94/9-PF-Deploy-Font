@@ -15,10 +15,11 @@ class WelcomePopUp extends Component {
     render(){
 
         const modalStyles={
-            position: "absolute",
-            transform: "translate(50%, 50%)",
-            maxWidth: "90%",
-            width: "auto"
+            position: "absolut",
+            top: "50%",
+            "margin-left": "50%",
+            "text-align": "center",
+            transform: "translate(-50%, -50%)"
         }
 
         return(

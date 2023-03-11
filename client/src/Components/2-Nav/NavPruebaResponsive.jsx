@@ -1,58 +1,40 @@
-import "./nav.css";
+import "./navprueba.css";
 import React, { useState } from "react";
 import styled from "styled-components";
 import BurgerButtonNav from "./BurgerButtonNav/BurgerButtonNav";
-import { animateScroll as scroll } from "react-scroll";
-import { Link } from "react-router-dom";
 
 
-function Nav() {
+function NavPrueba() {
 
-  const [burger_classNav, setBurgerClassNav] = useState("burger-barNav unclicked")
-  const [menu_classNav, setMenuClassNav] = useState("menuNav hidden")
-  const [isMenuClickedNav, setIsMenuClickedNav] = useState(false)
+    const [ clicked, setClicked ] = useState(false);
 
-  const updateMenuNav = () => {
-      if (!isMenuClickedNav) {
-          setBurgerClassNav("burger-barNav clicked")
-          setMenuClassNav("menuNav visible")
-      }
-      else {
-          setBurgerClassNav("burger-barNav unclicked")
-          setMenuClassNav("menuNav hidden")
-      }
-      setIsMenuClickedNav(!isMenuClickedNav)
-  }
-
-  const [ clicked, setClicked ] = useState(false);
-
-  const handleClick = () => {
-      setClicked(!clicked)
-  }
-
-  const scrollToContacto = () => {
-      scroll.scrollTo(document.getElementById("contacto").offsetTop);
-    };
-  
-    const scrollToNosotras = () => {
-      scroll.scrollTo(document.getElementById("nosotras").offsetTop);
-    };
-
-    const handleClickContacto = () => {
-      scrollToContacto();
-      
+    const handleClick = () => {
+        setClicked(!clicked)
     }
 
+    const [burger_classNav, setBurgerClassNav] = useState("burger-barNav unclicked")
+    const [menu_classNav, setMenuClassNav] = useState("menuNav hidden")
+    const [isMenuClickedNav, setIsMenuClickedNav] = useState(false)
+
+    const updateMenuNav = () => {
+        if (!isMenuClickedNav) {
+            setBurgerClassNav("burger-barNav clicked")
+            setMenuClassNav("menuNav visible")
+        }
+        else {
+            setBurgerClassNav("burger-barNav unclicked")
+            setMenuClassNav("menuNav hidden")
+        }
+        setIsMenuClickedNav(!isMenuClickedNav)
+    }
 
 
     return(
         <>
             <NavBar>
                 <div className={`links ${ clicked ? 'active' : '' }`}>
-                    <a onClick={handleClick} href="/">Home</a>
-                    <Link to="" onClick={scrollToNosotras}>
-                      <a>Nosotras</a>
-                    </Link>
+                    <a onClick={handleClick} href="/" className="home-nav">Home</a>
+                    <a onClick={handleClick} href="/" className="Nosotras">Nosotras</a>
                     {window.innerWidth <= 768 ? 
                      (                      
                             <div>
@@ -65,7 +47,6 @@ function Nav() {
                                 </nav>
                                 <div className={menu_classNav}>
                                     <ul className="Products-All">
-                                        <li><a onClick={handleClick} href="/products/animales">Todos</a></li>
                                         <li><a onClick={handleClick} href="/products/animales">Animales</a></li>
                                         <li><a onClick={handleClick} href="/products/bizcocho">Bizcocho Cerámico</a></li>
                                         <li><a onClick={handleClick} href="/products/cemento">Cemento</a></li>
@@ -87,9 +68,7 @@ function Nav() {
                             </ul>
                         </a>)
                     }
-                    <Link onClick={handleClickContacto}  to="" >
-                      <a className="contact">Contacto</a>
-                    </Link>
+                    <a onClick={handleClick} href="/" className="contact">Contacto</a>
                 </div>
                 <div className="Burguer">
                     <BurgerButtonNav clicked={clicked} handleClick={handleClick}/>
@@ -100,15 +79,16 @@ function Nav() {
     )
 };
 
-export default Nav;
+export default NavPrueba;
 
 const NavBar = styled.nav`
     
-    padding: .8rem;
+    padding: .4rem;
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-conctent: space-around;
+    border-bottom: 1px solid rgb(230, 230, 230);
 
     a{
         color: white;
@@ -124,7 +104,6 @@ const NavBar = styled.nav`
         margin-left: auto;
         margin-right: auto;
         text-align: left;
-        z-index: 2;
         a{
             color: black;
             font-size: 17px;
@@ -153,7 +132,7 @@ const NavBar = styled.nav`
         position: absolute;
         margin-left: 5%;
         margin-right: auto;
-        top: 20%;
+        top:10%;
         left: 0;
         right: 0;
         text-align: left;
@@ -182,12 +161,11 @@ const BgDiv = styled.div`
     left: -1000px;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 20;
 
     &.active{
         width: 50%;
-        height: 25.5vh;
-        margin-top: 31%;
+        height: 41.2vh;
         top: 0;
         left: 0;
     }
@@ -195,3 +173,7 @@ const BgDiv = styled.div`
 
 
 
+
+   
+                    
+                   

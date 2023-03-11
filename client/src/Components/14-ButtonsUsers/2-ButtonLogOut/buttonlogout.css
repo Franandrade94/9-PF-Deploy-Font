@@ -1,20 +1,21 @@
 .LogOutButton{
     margin-top: -9.5%;
-    width: 0;
     
 }
 
 .outBut{
     position: absolute;
-    border: 2px solid rgb(245, 102, 126);
-    border-radius: 7px;
+    text-align: left;
+    border: 2px solid rgb(255, 208, 216);
     background-color: transparent;
+    border-radius: 7px;
     margin-top: 0;
-    height: 4.5vh;
-    color: gray;
-    font-weight: bolder;
+    padding: .5% 2%;
+    font-weight: lighter;
+    color: rgb(165, 165, 165);;
 }
 
 .outBut:hover{
-    color: rgb(83, 83, 83);
+    background-color: rgb(255, 208, 216);
+  color: white;
 }

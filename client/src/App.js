@@ -21,6 +21,8 @@ import Payment from './Pages/7-Payment/Payment';
 import WelcomePopUp from "./Components/0-WelcomePopUp/WelcomePopUp";
 import ReviewPopUp from "./Components/18-ReviewPopUp/ReviewPopUp";
 
+import NavPrueba from "./Components/2-Nav/NavPruebaResponsive";
+
 
 function App({users, getAllUsers}) {
 
@@ -98,6 +100,7 @@ function App({users, getAllUsers}) {
         <Route path="/pagos/:price" exact component={Payment}/>
 
         <Route path="/reviewpopup" exact component={ReviewPopUp}/>
+
       </Router>
     </div>
   );
