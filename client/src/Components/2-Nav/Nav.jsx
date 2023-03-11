@@ -203,7 +203,7 @@ const BgDiv = styled.div`
 
     &.active{
         width: 50%;
-        height: 26%;
+        height: 30%;
         margin-top: 31%;
         top: 0;
         left: 0;
