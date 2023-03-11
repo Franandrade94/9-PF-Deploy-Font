@@ -170,7 +170,7 @@ const NavBar = styled.nav`
         position: absolute;
         margin-left: 5%;
         margin-right: auto;
-        top: 20%;
+        top: 23%;
         left: 0;
         right: 0;
         text-align: left;
@@ -203,8 +203,8 @@ const BgDiv = styled.div`
 
     &.active{
         width: 100%;
-        height: 30%;
-        margin-top: 141px;
+        height: 40%;
+        margin-top: 20%;
         top: 0;
         left: 0;
     }
