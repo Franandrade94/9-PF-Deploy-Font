@@ -202,9 +202,9 @@ const BgDiv = styled.div`
     z-index: 1;
 
     &.active{
-        width: 50%;
+        width: 100%;
         height: 30%;
-        margin-top: 31%;
+        margin-top: 141px;
         top: 0;
         left: 0;
     }

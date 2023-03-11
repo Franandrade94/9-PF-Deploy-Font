@@ -21,6 +21,7 @@
 .destacados-product-Container img{
     max-width: 100%;
     height: 45vh;
+    object-fit: cover;
 }
 
 .destacadosproductName{
