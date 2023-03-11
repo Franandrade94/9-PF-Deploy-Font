@@ -58,7 +58,9 @@ function Nav() {
                       <Link to="" onClick={scrollToNosotras}>
                         <a>Nosotras</a>
                       </Link>
-                      
+                      <Link onClick={handleClickContacto}  to="" >
+                          <a className="contact">Contacto</a>
+                        </Link>
                       <div>
                           <nav className="Menu-Nav">
                             <div className="burger-menuNav">
@@ -78,9 +80,7 @@ function Nav() {
                               <li><a onClick={handleClick} href="/products/otros">Otros</a></li>
                           </ul>
                         </div>
-                        <Link onClick={handleClickContacto}  to="" >
-                          <a className="contact">Contacto</a>
-                        </Link>
+                        
                       </div> 
 
                     </div>      
@@ -203,7 +203,7 @@ const BgDiv = styled.div`
 
     &.active{
         width: 50%;
-        height: 25.5vh;
+        height: 30%;
         margin-top: 31%;
         top: 0;
         left: 0;
