@@ -13,7 +13,7 @@ class Destacados extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products2: []
+      products3: []
     };
   }
   
@@ -38,14 +38,15 @@ class Destacados extends Component {
   render() {
     let products = [];
     products = this.props.products;
-    const products2 = products?.filter((product) => product?.rating >= 4.5 && product?.quantity >= 1)
+    const products2 = products?.filter(product => product?.deleted === false);
+    const products3 = products2?.filter((product) => product2?.rating >= 4.5 && product2?.quantity >= 1)
       .slice(0, 12);
     // console.log(this.props.products, 'PRODUCT');
 
     return (
       <div className="destacados">
         <h1>Destacados</h1>
-        {products2?.length === 0 ? (
+        {products3?.length === 0 ? (
           <Loading />
         ) : (
           <Slider
@@ -83,7 +84,7 @@ class Destacados extends Component {
               }
             ]}
           >
-            {products2?.map((product) => {
+            {products3?.map((product) => {
               return (
                 <div key={product.id}>
                   <DestacadosProdcutCard
