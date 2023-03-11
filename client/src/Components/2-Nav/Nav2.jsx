@@ -1,4 +1,4 @@
-import "./nav2.css";
+import "./nav.css";
 import React, { useState } from "react";
 import styled from "styled-components";
 import BurgerButtonNav from "./BurgerButtonNav/BurgerButtonNav";

@@ -6,7 +6,7 @@ import { animateScroll as scroll } from "react-scroll";
 import { Link } from "react-router-dom";
 
 
-function Nav() {
+function Nav3() {
 
   const [burger_classNav, setBurgerClassNav] = useState("burger-barNav unclicked")
   const [menu_classNav, setMenuClassNav] = useState("menuNav hidden")
@@ -100,7 +100,7 @@ function Nav() {
     )
 };
 
-export default Nav;
+export default Nav3;
 
 const NavBar = styled.nav`
     
