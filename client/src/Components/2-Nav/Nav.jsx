@@ -53,7 +53,7 @@ function Nav() {
                     {window.innerWidth <= 768 ? 
                      (  
                     <div> 
-                      <a onClick={handleClick} href="/">Home</a>
+                      <a href="/">Home</a>
                       
                       <Link to="" onClick={scrollToNosotras}>
                         <a>Nosotras</a>

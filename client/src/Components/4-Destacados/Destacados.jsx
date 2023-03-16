@@ -38,7 +38,7 @@ class Destacados extends Component {
   render() {
     let products = [];
     products = this.props.products;
-    const products2 = products?.filter(product => product?.deleted === false);
+    const products2 = this.products?.filter(p => p?.deleted === false);
     const products3 = products2?.filter((product) => product?.rating >= 4.5 && product?.quantity >= 1)
       .slice(0, 12);
     // console.log(this.props.products, 'PRODUCT');

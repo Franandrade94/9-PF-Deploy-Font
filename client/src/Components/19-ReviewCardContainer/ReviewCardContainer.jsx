@@ -39,7 +39,7 @@ class ReviewCardContainer extends Component {
          
         console.log(reviews, '1 ReVIEWS')
         
-        const reviews2 = reviews?.filter((r) => r?.comment?.length > 1)
+        const reviews2 = this.reviews?.filter((r) => r?.comment?.length > 1)
     
         console.log(reviews2, 'REVIEWs')
     
