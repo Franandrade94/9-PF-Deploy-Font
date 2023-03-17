@@ -38,11 +38,26 @@ function Nav() {
       scroll.scrollTo(document.getElementById("nosotras").offsetTop);
     };
 
+    const handleClickNosotras = () => {
+        scrollToNosotras();
+        
+      }
+  
+      const handleClickNosotras2 = () => {
+          scrollToNosotras();
+          handleClick();
+      }
+  
+
     const handleClickContacto = () => {
       scrollToContacto();
       
     }
 
+    const handleClickContacto2 = () => {
+        scrollToContacto();
+        handleClick();
+    }
 
 
     return(
@@ -55,10 +70,10 @@ function Nav() {
                     <div> 
                       <a href="/">Home</a>
                       
-                      <Link to="" onClick={scrollToNosotras}>
+                      <Link to="" onClick={handleClickNosotras2}>
                         <a>Nosotras</a>
                       </Link>
-                      <Link onClick={handleClickContacto}  to="" >
+                      <Link onClick={handleClickContacto2}  to="" >
                           <a className="contact">Contacto</a>
                         </Link>
                       <div>
@@ -86,20 +101,20 @@ function Nav() {
                     </div>      
                         ) : (
                     <div>
-                        <a onClick={handleClick} href="/">Home</a>
+                        <a href="/">Home</a>
                       
-                        <Link to="" onClick={scrollToNosotras}>
+                        <Link to="" onClick={handleClickNosotras}>
                           <a>Nosotras</a>
                         </Link>
 
-                        <a onClick={handleClick} href="/products" className="Products">Productos ▼
+                        <a href="/products" className="Products">Productos ▼
                             <ul className="Products-All">
-                                <li><a onClick={handleClick} href="/products/animales">Animales</a></li>
-                                <li><a onClick={handleClick} href="/products/bizcocho">Bizcocho Cerámico</a></li>
-                                <li><a onClick={handleClick} href="/products/cemento">Cemento</a></li>
-                                <li><a onClick={handleClick} href="/products/colgantes">Colgantes</a></li>
-                                <li><a onClick={handleClick} href="/products/fridas">Fridas & Babies</a></li>
-                                <li><a onClick={handleClick} href="/products/otros">Otros</a></li>
+                                <li><a href="/products/animales">Animales</a></li>
+                                <li><a  href="/products/bizcocho">Bizcocho Cerámico</a></li>
+                                <li><a  href="/products/cemento">Cemento</a></li>
+                                <li><a  href="/products/colgantes">Colgantes</a></li>
+                                <li><a  href="/products/fridas">Fridas & Babies</a></li>
+                                <li><a  href="/products/otros">Otros</a></li>
                             </ul>
                         </a>
                         <Link onClick={handleClickContacto}  to="" >

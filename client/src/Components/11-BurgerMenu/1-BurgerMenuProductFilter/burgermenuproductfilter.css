@@ -47,21 +47,19 @@
     display: flex;
     justify-content: space-between;
     border: none;
-    width: 7vw;
-    height: 5.5vh;
+    padding: 4%;
     margin-top: -6%;
-    font-size: 14px;
     font-weight: bold;
     background-color: transparent;
     color: rgb(103, 102, 102);
-}
-
-.filter-btn p{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 9%;
-    left: 0;
-    right: 0;
     text-align: center;
 }
 
+.filter-btn p{
+    display: flex;
+}
+
+.filter-icon{
+    font-size: 25px;
+    
+}

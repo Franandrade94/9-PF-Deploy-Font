@@ -1,6 +1,7 @@
 import "./burgermenuproductfilter.css";
 import React, { useState } from "react";
 import SortMenu from "./SortMenu/BurgerMenuSort";
+import { FiFilter } from "react-icons/fi";
 
 
 export default function BurgerMenuProdcutFilter()  {
@@ -26,7 +27,7 @@ export default function BurgerMenuProdcutFilter()  {
            <nav className="filterNav">
                 <div className="burger-menu2">
                     <div className={burger_class} onClick={updateMenu}>
-                        <button className="filter-btn"><img className="FilerIMG" alt="" src="https://res.cloudinary.com/diw3vl6dr/image/upload/v1678176753/grawcnn15xj1cqnvbjqd.png"/><p>Filtrar</p></button>
+                        <button className="filter-btn"><FiFilter className="filter-icon"/>Filtrar</button>
                     </div>
                 </div>
             </nav>

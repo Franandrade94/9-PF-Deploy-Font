@@ -10,7 +10,7 @@ class ProductCardContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products2: []
+      products: []
     };
   }
 
@@ -36,8 +36,8 @@ class ProductCardContainer extends Component {
   };
   render() {
 
-    let products=[]
-        products = this.props.products
+    let products = [];
+    products = this.props.products
         const products2 = products?.filter(product => product?.deleted === false);
 
     return (
@@ -77,7 +77,7 @@ class ProductCardContainer extends Component {
 
 export const mapStateToProps = (state) => {
   return {
-    products: state.products,
+    products: state.products || [],
     carrito: state.carrito
   };
 };

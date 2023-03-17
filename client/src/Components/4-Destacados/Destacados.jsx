@@ -13,7 +13,7 @@ class Destacados extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products3: []
+      products: []
     };
   }
   
@@ -36,17 +36,20 @@ class Destacados extends Component {
 
 
   render() {
-    let products = [];
+    let products = [] 
     products = this.props.products;
-    const products2 = this.products?.filter(p => p?.deleted === false);
-    const products3 = products2?.filter((product) => product?.rating >= 4.5 && product?.quantity >= 1)
-      .slice(0, 12);
-    // console.log(this.props.products, 'PRODUCT');
+    if (Array.isArray(products) && products?.filter) {
+      products = products
+        .filter(p => p?.deleted === false)
+        .filter((product) => product?.rating >= 4.5 && product?.quantity >= 1)
+        .slice(0, 12);
+    }
+    
 
     return (
       <div className="destacados">
         <h1>Destacados</h1>
-        {products3?.length === 0 ? (
+        {products?.length === 0 ? (
           <Loading />
         ) : (
           <Slider
@@ -83,8 +86,7 @@ class Destacados extends Component {
                 }
               }
             ]}
-          >
-            {products3?.map((product) => {
+          >{ products?.map((product) => {
               return (
                 <div key={product.id}>
                   <DestacadosProdcutCard
