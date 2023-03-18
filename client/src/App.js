@@ -20,6 +20,7 @@ import BotonCarrito from './Components/17-PasareladePago/BotonCarrito/BotonCarri
 import Payment from './Pages/7-Payment/Payment';
 import WelcomePopUp from "./Components/0-WelcomePopUp/WelcomePopUp";
 import ReviewPopUp from "./Components/18-ReviewPopUp/ReviewPopUp";
+import ButtonsUsers from "./Components/14-ButtonsUsers/ButtonsUsers";
 
 import NavPrueba from "./Components/2-Nav/NavPruebaResponsive";
 
@@ -72,6 +73,7 @@ function App({users, getAllUsers}) {
 
         { !users2 && <WelcomePopUp/> }
 
+        <ButtonsUsers/>
         
         <Route path="/" exact component={Home}/>
 

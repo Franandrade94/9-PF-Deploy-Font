@@ -18,7 +18,7 @@ export default class Home extends Component {
         return(
             <div className="Home">
                 <div>
-                    <ButtonsUsers/>
+                    {/* <ButtonsUsers/> */}
                     <Logo/>
                     <Nav/>
                     <Link to="/products">
