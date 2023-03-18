@@ -4,13 +4,15 @@ import { connect } from "react-redux";
 import * as actions from "../../../Redux/actions/index";
 import ProductCard from "../ProductCard/ProductCard";
 import Loading from "../../6-Loading/Loading";
+import NotFound from "../../6-NotFound/NotFound";
+
 
 class Colgantes extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-          products2: []
+          products: []
         };
       }
     
@@ -19,7 +21,13 @@ class Colgantes extends Component {
         let orderby = new URLSearchParams(search).get('orderby');
         let types = new URLSearchParams(search).get('types');
         let pricerange = new URLSearchParams(search).get('pricerange');
-        this.props.getAllProducts(orderby, types, pricerange)
+        this.props.getAllProducts(orderby, types, pricerange);
+
+        setTimeout(() => {
+            if (this.state.products.length === 0) {
+              this.setState({ notFound: true });
+            }
+          }, 5000);
     }
 
     componentWillUpdate(){
@@ -49,7 +57,12 @@ class Colgantes extends Component {
             <div className="ColganteCard-Container">
                 <div>
                     <div className="ColganteCard-Home">
-                        {(products2?.length === 0) ? <Loading/>  : products2?.map((product) => { 
+                        {this.state.notFound ? (
+                            <div className="notFound">
+                                <NotFound/>
+                            </div>
+                             ) : products2.length === 0 ? (
+                                <Loading />)   : products2?.map((product) => { 
                             return <div key={product.id}> 
                                 <ProductCard
                                     id={product.id}

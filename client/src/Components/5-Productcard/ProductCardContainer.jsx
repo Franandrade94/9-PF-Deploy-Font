@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 import * as actions from "../../Redux/actions/index";
 import ProductCard from "./ProductCard/ProductCard";
 import Loading from "../6-Loading/Loading";
+import NotFound from "../6-NotFound/NotFound";
 
 class ProductCardContainer extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      notFound: false // agrega un estado notFound para controlar si se muestra el mensaje "not found"
     };
   }
 
@@ -20,34 +21,42 @@ class ProductCardContainer extends Component {
     let types = new URLSearchParams(search).get('types');
     let pricerange = new URLSearchParams(search).get('pricerange');
     this.props.getAllProducts(orderby, types, pricerange);
+
+    // usa setTimeout para mostrar "not found" después de 20 segundos
+    setTimeout(() => {
+      if (this.state.products.length === 0) {
+        this.setState({ notFound: true });
+      }
+    }, 5000);
   }
 
-  componentWillUpdate(){
-    console.log("aaaaa")
+  componentWillReceiveProps(nextProps) {
+    this.setState({ products: nextProps.products });
   }
-  componentWillReceiveProps(){
-    console.log("dsd")
-  }
+
   handleAgregarCarrito = (id) => {
     this.props.agregarCarrito(id);
   };
+
   handleSacarCarrito = (id) => {
     this.props.sacarDelCarrito(id);
   };
-  render() {
 
-    let products = [];
-    products = this.props.products
-        const products2 = products?.filter(product => product?.deleted === false);
+  render() {
+    const products2 = this.state.products.filter(product => product.deleted === false);
 
     return (
       <div className="ProductCard-Container">
         <div>
           <div className="ProductCard-Home">
-            { products2?.length === 0 ? (
+            { this.state.notFound ? (
+              <div className="notFound">
+                <NotFound/>
+              </div>
+            ) : products2.length === 0 ? (
               <Loading />
             ) : (
-              products2?.map((product) => {
+              products2.map((product) => {
                 return (
                   <div key={product.id}>
                     <ProductCard
@@ -62,7 +71,6 @@ class ProductCardContainer extends Component {
                       carrito={product.carrito}
                       handleAgregarCarrito={this.handleAgregarCarrito}
                       handleSacarCarrito={this.handleSacarCarrito}
-
                     />
                   </div>
                 );
@@ -88,8 +96,6 @@ export const mapDispatchToProps = (dispatch) => {
       dispatch(actions.getAllProducts(orderby, types, pricerange)),
     agregarCarrito: (id) => dispatch(actions.agregarCarrito(id)),
     sacarDelCarrito: (id) => dispatch(actions.sacarDelCarrito(id))
-
-    
   };
 };
 
