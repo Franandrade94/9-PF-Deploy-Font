@@ -25,3 +25,38 @@
     height: 31vh;
     width: 20vw;
 }
+
+@media (max-width: 790px){
+    .categoriasHome-component{
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 10%;
+        margin-top: 5%;
+    }
+    
+    .ShopProduct{
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;        
+    }
+    
+    .CategoriasButton{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1% 0.5%;
+        margin-left: 2%;
+        margin-right: 2%; 
+    }
+    
+    .CategoriasButton button {
+        border: none;
+        background-color: transparent;
+    }
+    
+    .CategoriasButton img{
+        height: 100%;
+        width: 100%;
+    }
+}

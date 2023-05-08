@@ -1,7 +1,7 @@
 import "./contacto.css";
 import React from "react";
 import { Link } from "react-router-dom";
-import ButtonMailto from "./MaliTo/MailTo";
+import { BsFacebook, BsWhatsapp, BsInstagram, BsGoogle } from "react-icons/bs";
 
 const Contacto = () => {
 
@@ -19,22 +19,24 @@ const Contacto = () => {
 
     return(
         <div className="contacto-Home">
-            <h4 className="contactoH4">contacto</h4>
-            <p className="MailTo">
-                <ButtonMailto label="bonitadevoto@gmail.com" mailto="mailto:bonitadevoto@gmail.com" />
-            </p>
+            <h2 className="contactoH4">Contacto</h2>
+            
             <div className="contacto-Container">
-                <Link onClick={ handleClickWapp }>
-                    <img alt="" src="https://res.cloudinary.com/diw3vl6dr/image/upload/v1678163563/ijwjj3rv9syhqgr2kqn5.png"/>
+                <Link className="Link-Icon" onClick={ handleClickWapp }>
+                    <BsWhatsapp className="contact-icon"/>
                 </Link>
                 
-                <Link onClick={ handleClickInsta }>
-                    <img alt="" src="https://res.cloudinary.com/diw3vl6dr/image/upload/v1678163563/x0cefhlf1yvm1xuhdxws.png"/>
+                <Link className="Link-Icon" onClick={ handleClickInsta }>
+                    <BsInstagram className="contact-icon"/>
                 </Link>
                 
-                <Link onClick={ handleClickFacebook }>
-                    <img alt="" src="https://res.cloudinary.com/diw3vl6dr/image/upload/v1678163563/meqpq4wykurc7ssjwgcz.png"/>
-                </Link>                
+                <Link className="Link-Icon" onClick={ handleClickFacebook }>
+                    <BsFacebook className="contact-icon"/>
+                </Link>      
+
+                <Link onClick={() => window.location = 'mailto:bonitadevoto@gmail.com'}>
+                    <BsGoogle className="contact-icon"/>
+                </Link>          
             </div>
         </div>
     )   

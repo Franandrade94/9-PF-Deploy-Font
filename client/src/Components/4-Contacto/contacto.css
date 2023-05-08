@@ -11,24 +11,60 @@
     margin-bottom: 2%;
 }
 
-.contactoH6{
-    color: white;
-    text-align: left;
-    margin-left: 1%;
-    margin-bottom: 1%;
-}
-
 .contacto-Container{
     margin-left: 1%;
-    margin-right: 90%;
-    display: flex;
-    justify-content: space-between;
+    text-align: left;
 }
 
-.contacto-Container img{
-    height: 3.5vh;
+.Link-Icon{
+    margin-left: 0%;
+    text-align: left;
 }
 
-.ButtonMailto {
-    color: pink;
-  }
+.contact-icon{
+    color: white;
+    font-size: 30px;
+    margin-left: 1%;
+    text-align: left;
+}
+
+@media (max-width: 790px){
+    .contacto-Home{
+        background-color: rgb(56, 56, 56); 
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+    
+    .contactoH4{
+        color: white;
+        text-align: left;
+        margin-left: 2%;
+        margin-bottom: 2%;
+
+    }
+    
+    .contactoH6{
+        color: white;
+        text-align: left;
+        margin-left: 0%;
+        margin-bottom: 1%;
+    }
+    
+    .contacto-Container{
+        margin-left: 1%;
+        text-align: left;
+    }
+    
+    .Link-Icon{
+        margin-left: 0%;
+        text-align: left;
+    }
+
+    .contact-icon{
+        color: white;
+        font-size: 25px;
+        margin-left: 2%;
+        text-align: left;
+    }
+    
+}
